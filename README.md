@@ -14,7 +14,7 @@ The 3VOtech logo, colors and brand guidelines, and the scripts that build the lo
 
 ## The logo
 
-The 3 in 3VOtech is a backward E, so the name reads EVO. The logo joins those three letters into one shape. The Ǝ's spine is also the V's stem. The V's long arm is a **check mark** that cuts through the O, because that is the job: check in, get the work done, check it off. The Ǝ's bars are cut at the same angle as the check, 54.6°, so they read as speed lines.
+The 3 in 3VOtech is a backward E, so the name reads EVO. The logo joins those three letters into one shape. The Ǝ's spine is also the V's stem. The V's long arm is a **check mark** that cuts through the O, because that is the job: check in, get the work done, check it off. The Ǝ's bars are cut at the same angle as the check, 54.6°, so they read as speed lines. Every version separates the letters the same way: a thin gap around the V where it meets the bars and crosses the O.
 
 | Color, light ground | Color, dark ground | Black, for print | White |
 |:---:|:---:|:---:|:---:|
@@ -25,7 +25,7 @@ Every logo comes in three arrangements: `horizontal` (wide spaces), `stacked` (t
 | Version | Use it on |
 |---|---|
 | `-color` | white and light grounds |
-| `-color-dark` | navy grounds only; its colors add like light where the V crosses the O |
+| `-color-dark` | navy grounds only; its lighter colors are made for navy |
 | `-black` | paper, in one ink |
 | `-white` | dark grounds, photos, shirts, hats, decals |
 | `-navy` | one ink in brand navy, such as embroidery or signage |

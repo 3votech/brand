@@ -8,7 +8,7 @@
 
 ## The logo
 
-The mark is three letters joined into one shape. The Ǝ's spine is also the V's left stem, the V's long arm is a **check mark** crossing the O, and the Ǝ's bars are cut at the arm's angle, 54.6° from horizontal, so they read as speed lines. The check is the point: technicians check in and check off tasks.
+The mark is three letters joined into one shape. The Ǝ's spine is also the V's left stem, the V's long arm is a **check mark** crossing the O, and the Ǝ's bars are cut at the arm's angle, 54.6° from horizontal, so they read as speed lines. Every version separates the letters the same way: a thin gap around the V where it meets the bars and crosses the O. The check is the point: technicians check in and check off tasks.
 
 | Use | File | Ground |
 |---|---|---|
@@ -23,7 +23,7 @@ The mark is three letters joined into one shape. The Ǝ's spine is also the V's 
 - **Clear space:** keep empty space around the logo at least the height of one Ǝ bar (a fifth of the mark's height) on every side.
 - **Minimum size:** the horizontal logo 120px wide on screen and 1in in print; the stacked logo 64px and 0.6in; the mark 24px and 0.25in. Smaller than that, use the mark alone.
 - **TECH is artwork, not type.** Its T, E and C are cut at the same 54.6° as the mark. Never retype it in Saira, which has no cuts.
-- **The dark color version adds its colors like light:** where the V crosses the O, they glow. That only works on navy. On a light ground use `3votech-*-color.svg`.
+- **The dark color version is for navy only.** Its lighter colors are made for it. On a light ground use `3votech-*-color.svg`.
 - Do not recolor the mark beyond its versions (color, color for dark, black, white, navy), add gradients, shadows or outlines, rotate it, stretch it, or place the color version on a photo. On a photo, use the one-color white version.
 - Colors, for print and vendors: Ǝ `logo-e` (#2459F5), V `logo-v` (#7A3CF0), O `logo-o` (#0891B2), TECH `logo-ink` (#0D1530). On dark: #5C8DFF, #A685FF, #22D3EE and #EAF0FF.
 
