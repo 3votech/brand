@@ -1,0 +1,46 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@125,600&display=swap">
+<style>
+  html, body { margin: 0; background: var(--ground); }
+  .cover { position: relative; width: 960px; height: 288px; background: var(--ground); overflow: hidden; }
+  .art { position: absolute; left: 480px; top: 0; width: 480px; height: 288px; }
+  .c-tint { fill: var(--tint); }
+  .c-accent { fill: var(--accent); }
+  .c-spark { fill: var(--spark); }
+  .c-relief { fill: var(--tintContainer); }
+  .c-ink { fill: var(--label); }
+  .words { position: absolute; left: 40px; bottom: 40px; max-width: 440px; display: grid; gap: 12px; }
+  .name { margin: 0; font-family: var(--font-display); font-stretch: 125%; font-weight: 600; font-size: 72px; line-height: .95; letter-spacing: -0.01em; color: var(--label); }
+  .tagline { margin: 0; font-family: var(--font-system); font-size: 14px; line-height: 20px; color: var(--label2); }
+</style>
+</head>
+<body>
+<div class="cover">
+  <svg class="art" viewBox="0 0 480 288" aria-hidden="true">
+    <!--
+      blocks: tint, accent and spark bands 48 tall (space-xxl), on a tintContainer slab 96 wide (2 x space-xxl), full height
+      arrangement: three bands stacked like the mark's bars, the middle one shorter, bleeding off the right edge, gaps 32 (space-xl)
+      pattern: speed lines, the literal motif of the logo: its bars are cut at 54.6 degrees, the angle of the check, so every left end here is too
+      steps: bands 48 (space-xxl), gaps 32 (space-xl), lines 8 (space-sm), cut offset = height x 0.7736; radius none, the mark has square corners
+    -->
+    <rect class="c-relief" x="384" y="0" width="96" height="288"/>
+    <polygon class="c-tint" points="157.1,40 480,40 480,88 120,88"/>
+    <polygon class="c-accent" points="205.1,120 480,120 480,168 168,168"/>
+    <polygon class="c-spark" points="157.1,200 480,200 480,248 120,248"/>
+    <polygon class="c-ink" points="62.2,48 110.2,48 104,56 56,56"/>
+    <polygon class="c-ink" points="86.2,72 118.2,72 112,80 80,80"/>
+    <polygon class="c-ink" points="102.2,128 150.2,128 144,136 96,136"/>
+    <polygon class="c-ink" points="126.2,152 158.2,152 152,160 120,160"/>
+    <polygon class="c-ink" points="62.2,208 110.2,208 104,216 56,216"/>
+    <polygon class="c-ink" points="86.2,232 118.2,232 112,240 80,240"/>
+  </svg>
+  <div class="words">
+    <h1 class="name">3VOtech<br>Brand</h1>
+    <p class="tagline">Volt: the logo, colors and type behind Evolution.</p>
+  </div>
+</div>
+</body>
+</html>

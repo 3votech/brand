@@ -1,0 +1,198 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-13T14:20:00Z"
+  },
+  "title": "3VOtech Brand",
+  "namespace": "ThreeVOtech",
+  "libraries": [],
+  "sections": {},
+  "groups": [
+    "Logos",
+    "App icon"
+  ],
+  "assetGroups": {
+    "Logos": {
+      "name": "Logos",
+      "tile": "l",
+      "order": [
+        "3votech-horizontal-color.svg",
+        "3votech-horizontal-color-dark.svg",
+        "3votech-horizontal-navy.svg",
+        "3votech-horizontal-white.svg",
+        "3votech-horizontal-black.svg",
+        "3votech-stacked-color.svg",
+        "3votech-stacked-color-dark.svg",
+        "3votech-stacked-navy.svg",
+        "3votech-stacked-white.svg",
+        "3votech-stacked-black.svg",
+        "3votech-mark-color.svg",
+        "3votech-mark-color-dark.svg",
+        "3votech-mark-navy.svg",
+        "3votech-mark-white.svg",
+        "3votech-mark-black.svg"
+      ],
+      "files": {
+        "3votech-horizontal-color.svg": {
+          "name": "3votech-horizontal-color.svg",
+          "blob": "48b73cf9bf313ffdd392a04ffa18b78d",
+          "size": 4402,
+          "type": "image/svg+xml"
+        },
+        "3votech-horizontal-color-dark.svg": {
+          "name": "3votech-horizontal-color-dark.svg",
+          "blob": "1ce5240af17440f79b316691f361d890",
+          "size": 4430,
+          "type": "image/svg+xml"
+        },
+        "3votech-horizontal-navy.svg": {
+          "name": "3votech-horizontal-navy.svg",
+          "blob": "c954a0ea41dc4283f87235e8ea4d7e6d",
+          "size": 4595,
+          "type": "image/svg+xml"
+        },
+        "3votech-horizontal-white.svg": {
+          "name": "3votech-horizontal-white.svg",
+          "blob": "3a3b28cfe180af8cda96071d802b5762",
+          "size": 4597,
+          "type": "image/svg+xml"
+        },
+        "3votech-stacked-color.svg": {
+          "name": "3votech-stacked-color.svg",
+          "blob": "9a4b5bd3fad48632439cd17f30a43746",
+          "size": 4398,
+          "type": "image/svg+xml"
+        },
+        "3votech-stacked-color-dark.svg": {
+          "name": "3votech-stacked-color-dark.svg",
+          "blob": "f031c5b850c1fd7ff0ba6aa04b7ffec0",
+          "size": 4426,
+          "type": "image/svg+xml"
+        },
+        "3votech-stacked-navy.svg": {
+          "name": "3votech-stacked-navy.svg",
+          "blob": "9906133462ce08b07c9bc4a569b5589b",
+          "size": 4591,
+          "type": "image/svg+xml"
+        },
+        "3votech-stacked-white.svg": {
+          "name": "3votech-stacked-white.svg",
+          "blob": "c4eeb2313043956e1061ea282966d77d",
+          "size": 4593,
+          "type": "image/svg+xml"
+        },
+        "3votech-mark-color.svg": {
+          "name": "3votech-mark-color.svg",
+          "blob": "e50c7b9a8cbd30cfe9b7ed6a90b81617",
+          "size": 836,
+          "type": "image/svg+xml"
+        },
+        "3votech-mark-color-dark.svg": {
+          "name": "3votech-mark-color-dark.svg",
+          "blob": "02606c3b486ad7b5fc2383f231085375",
+          "size": 864,
+          "type": "image/svg+xml"
+        },
+        "3votech-mark-navy.svg": {
+          "name": "3votech-mark-navy.svg",
+          "blob": "2406fdb93cf4be8ecb38e093ca33fa84",
+          "size": 1029,
+          "type": "image/svg+xml"
+        },
+        "3votech-mark-white.svg": {
+          "name": "3votech-mark-white.svg",
+          "blob": "10cbbd689498b5cb2068db8623d77c5c",
+          "size": 1031,
+          "type": "image/svg+xml"
+        },
+        "3votech-horizontal-black.svg": {
+          "name": "3votech-horizontal-black.svg",
+          "blob": "44ab319d5ac9496ee1e36498647f3cfe",
+          "size": 4619,
+          "type": "image/svg+xml"
+        },
+        "3votech-stacked-black.svg": {
+          "name": "3votech-stacked-black.svg",
+          "blob": "79cde50a6b0c015ebe9e314946f8cd45",
+          "size": 4615,
+          "type": "image/svg+xml"
+        },
+        "3votech-mark-black.svg": {
+          "name": "3votech-mark-black.svg",
+          "blob": "cbf35d74bddaeca26037eccff3f91e04",
+          "size": 1053,
+          "type": "image/svg+xml"
+        }
+      }
+    },
+    "App icon": {
+      "name": "App icon",
+      "tile": "m",
+      "order": [
+        "app-icon-light.png",
+        "app-icon-dark.png",
+        "app-icon-light.svg",
+        "app-icon-dark.svg",
+        "icon-layer-o-ring.svg",
+        "icon-layer-e-bars.svg",
+        "icon-layer-v-check.svg"
+      ],
+      "files": {
+        "app-icon-light.png": {
+          "name": "app-icon-light.png",
+          "blob": "d3d781d1f4348408e70dc3ae59fa0ee8",
+          "size": 25507,
+          "type": "image/png"
+        },
+        "app-icon-dark.png": {
+          "name": "app-icon-dark.png",
+          "blob": "b00aa5e1ff91509c146fd8a0efccd7fa",
+          "size": 29296,
+          "type": "image/png"
+        },
+        "app-icon-light.svg": {
+          "name": "app-icon-light.svg",
+          "blob": "30968418f4d9ead9278e03665eaa25cd",
+          "size": 972,
+          "type": "image/svg+xml"
+        },
+        "app-icon-dark.svg": {
+          "name": "app-icon-dark.svg",
+          "blob": "bb598969761f77bc8317cd83359c8cee",
+          "size": 1000,
+          "type": "image/svg+xml"
+        },
+        "icon-layer-o-ring.svg": {
+          "name": "icon-layer-o-ring.svg",
+          "blob": "fa1c9705ecc416c04b1a9c2b0624b9c7",
+          "size": 404,
+          "type": "image/svg+xml"
+        },
+        "icon-layer-e-bars.svg": {
+          "name": "icon-layer-e-bars.svg",
+          "blob": "a14e94b57744873b90fcd171db2e8c6a",
+          "size": 652,
+          "type": "image/svg+xml"
+        },
+        "icon-layer-v-check.svg": {
+          "name": "icon-layer-v-check.svg",
+          "blob": "14e482eea5b8c50121e1f67263a52409",
+          "size": 509,
+          "type": "image/svg+xml"
+        }
+      }
+    }
+  },
+  "blobs": {},
+  "docs": {
+    "sections": []
+  },
+  "lastChange": {
+    "by": "Michael Carter",
+    "at": "2026-10-13T15:05:00Z",
+    "via": "Claude Code",
+    "note": "Add a pure black version of each logo, for printing on paper."
+  }
+}

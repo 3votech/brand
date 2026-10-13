@@ -1,0 +1,533 @@
+<title>3VOtech Logo Studies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,600&family=Chakra+Petch:wght@600&family=Saira:wdth,wght@125,600&family=Michroma&family=Exo+2:ital,wght@1,700&family=Titillium+Web:wght@600&family=Barlow+Semi+Condensed:ital,wght@1,600&family=Oxanium:wght@600&family=Russo+One&family=Archivo:ital,wdth,wght@1,125,700&family=Rajdhani:wght@600&display=swap">
+<style>
+/* Layout: a studio contact sheet. One column of studies, each a row of fixed light/dark tiles with short notes beside them. */
+:root {
+  --ground: #F3F5FB; --cell: #FFFFFF; --fill: #E3E8F4; --label: #0D1530; --label2: #5B6585; --label3: #8A93B0;
+  --sep: #E3E7F1; --tint: #2459F5; --accent: #7A3CF0; --spark: #0891B2;
+  --display: 'Baloo 2', 'Nunito', ui-rounded, system-ui, sans-serif;
+  --body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #0A1230; --cell: #131C42; --fill: #1C2756; --label: #EAF0FF; --label2: #9BA8D4; --label3: #6D7AAE;
+    --sep: #222D5C; --tint: #5C8DFF; --accent: #A685FF; --spark: #22D3EE; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ground: #0A1230; --cell: #131C42; --fill: #1C2756; --label: #EAF0FF; --label2: #9BA8D4; --label3: #6D7AAE;
+  --sep: #222D5C; --tint: #5C8DFF; --accent: #A685FF; --spark: #22D3EE; color-scheme: dark;
+}
+
+body { background: var(--ground); color: var(--label); font-family: var(--body); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 72px; display: grid; gap: 56px; }
+
+header { display: grid; gap: 10px; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--label2); }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(34px, 6vw, 52px); line-height: 1.02; margin: 0; text-wrap: balance; }
+h1 .e { display: inline-block; transform: scaleX(-1); color: var(--tint); }
+h1 .v { color: var(--accent); } h1 .o { color: var(--spark); }
+.lede { color: var(--label2); max-width: 62ch; margin: 0; }
+
+section { display: grid; gap: 18px; }
+.sec-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; border-top: 1px solid var(--sep); padding-top: 18px; }
+h2 { font-family: var(--display); font-weight: 600; font-size: 26px; line-height: 1.1; margin: 0; }
+.tag { font-family: var(--mono); font-size: 12px; color: var(--label2); }
+.new { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); border: 1px solid currentColor; border-radius: 99px; padding: 1px 8px; }
+
+.study { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+@media (max-width: 760px) { .study { grid-template-columns: minmax(0, 1fr); } }
+.tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.tiles.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 520px) { .tiles, .tiles.three { grid-template-columns: minmax(0, 1fr); } }
+
+.tile { border-radius: 14px; aspect-ratio: 1 / 1; display: grid; place-items: center; padding: 10%; max-width: 100%; }
+.tile.wide { aspect-ratio: 2 / 1; padding: 7% 8%; }
+.tile svg { width: 100%; height: 100%; display: block; overflow: visible; }
+
+/* Fixed artwork palettes: these do not follow the page theme, they ARE the light and dark versions.
+   Light: shapes stack normally and the overlaps get explicit purple-leaning mixes (--x13, --x23),
+   so the triangle still reads purple. Dark: shapes add like light (screen). */
+.t-light { background: #FFFFFF; box-shadow: inset 0 0 0 1px #E3E7F1; --c1: #2459F5; --c2: #0891B2; --c3: #7A3CF0; --ink: #0D1530; --blend: normal; --x13: #6440F3; --x23: #6448DC; --gap: none; }
+.t-dark  { background: #0A1230; box-shadow: inset 0 0 0 1px #222D5C; --c1: #5C8DFF; --c2: #22D3EE; --c3: #A685FF; --ink: #EAF0FF; --blend: screen; --x13: none; --x23: none; --gap: none; }
+.t-one   { background: #0D1530; --c1: #FFFFFF; --c2: #FFFFFF; --c3: #FFFFFF; --ink: #FFFFFF; --blend: normal; --x13: none; --x23: none; --gap: #0D1530; }
+.t-tinted{ background: #16181D; --c1: #8E95A3; --c2: #C9CED8; --c3: #F2F4F8; --ink: #F2F4F8; --blend: screen; --x13: none; --x23: none; --gap: none; }
+
+.notes { display: grid; gap: 10px; min-width: 0; }
+.notes h3 { font-family: var(--display); font-weight: 600; font-size: 19px; margin: 0; line-height: 1.2; }
+.notes p { margin: 0; color: var(--label2); }
+.notes ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; color: var(--label2); }
+.notes li b { color: var(--label); font-weight: 600; }
+.notes li::marker { color: var(--label3); }
+.verdict { font-size: 13px; font-family: var(--mono); color: var(--label2); background: var(--fill); border-radius: 8px; padding: 8px 10px; }
+.verdict b { color: var(--label); font-weight: 500; }
+
+.caps-head { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; font-family: var(--mono); font-size: 12px; color: var(--label2); }
+@media (max-width: 520px) { .caps-head { display: none; } }
+.notes b { color: var(--label); font-weight: 600; }
+.fontbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.seg { display: inline-flex; background: var(--fill); border-radius: 10px; padding: 3px; gap: 2px; }
+.seg button { font: 500 13px var(--body); color: var(--label2); background: transparent; border: 0; border-radius: 8px; padding: 6px 12px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--cell); color: var(--label); box-shadow: 0 1px 2px rgba(10,18,48,.15); }
+.seg button:focus-visible { outline: 2px solid var(--tint); outline-offset: 2px; }
+.fonts { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; }
+.ft { margin: 0; display: grid; gap: 8px; min-width: 0; }
+.ft .tile { padding: 9%; }
+.ft figcaption { display: grid; gap: 1px; }
+.ft figcaption b { font-family: var(--display); font-weight: 600; font-size: 16px; line-height: 1.2; }
+.ft figcaption span { font-size: 13px; color: var(--label2); line-height: 1.4; }
+.ft.pick figcaption b::after { content: "my pick"; font: 500 10px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent); border: 1px solid currentColor; border-radius: 99px; padding: 0 6px; margin-left: 8px; vertical-align: 2px; }
+.locks { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 12px; }
+.tile.lock { aspect-ratio: auto; padding: 7% 7%; }
+.tile.lock svg { height: auto; }
+.lockups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 620px) { .lockups { grid-template-columns: minmax(0, 1fr); } }
+
+.icons { display: flex; flex-wrap: wrap; gap: 22px 28px; align-items: flex-end; }
+.ic { display: grid; gap: 8px; justify-items: center; font-family: var(--mono); font-size: 11px; color: var(--label2); }
+.squircle { width: 132px; aspect-ratio: 1; border-radius: 23%; display: grid; place-items: center; box-shadow: 0 1px 2px rgba(10,18,48,.12), 0 6px 18px rgba(10,18,48,.10); }
+.squircle svg { width: 70%; height: 70%; overflow: visible; }
+.squircle.round { border-radius: 50%; }
+.squircle.round svg { width: 60%; height: 60%; }
+.sz-60 { width: 60px; } .sz-40 { width: 40px; } .sz-29 { width: 29px; box-shadow: 0 1px 2px rgba(10,18,48,.15); }
+
+.recs { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.rec { background: var(--cell); border: 1px solid var(--sep); border-radius: 12px; padding: 16px 18px; display: grid; gap: 6px; align-content: start; }
+.rec h3 { margin: 0; font-family: var(--display); font-weight: 600; font-size: 18px; line-height: 1.2; }
+.rec p { margin: 0; color: var(--label2); font-size: 14px; }
+code { font-family: var(--mono); font-size: .88em; background: var(--fill); padding: 1px 5px; border-radius: 4px; }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <clipPath id="triClip"><path d="M30 10H126L78 93Z"/></clipPath>
+    <clipPath id="triClipC"><path d="M30 10H126L78 93Z"/></clipPath>
+
+    <!-- D: Michael's ligature. The Ǝ's spine is the V's left stem; the V's arm (a check mark) crosses the O. -->
+    <symbol id="mD" viewBox="-4 -10 176 116">
+      <g style="isolation:isolate">
+        <circle cx="113" cy="50" r="42" fill="none" stroke="var(--c2)" stroke-width="20"/>
+        <rect x="0" y="0" width="60" height="20" rx="2" fill="var(--c1)"/>
+        <rect x="14" y="40" width="46" height="20" rx="2" fill="var(--c1)"/>
+        <rect x="0" y="80" width="60" height="20" rx="2" fill="var(--c1)"/>
+        <path d="M60 0H80V71.6L140 -6H166L84 100H60Z" fill="none" stroke="var(--gap)" stroke-width="10" stroke-linejoin="round"/>
+        <path d="M60 0H80V71.6L140 -6H166L84 100H60Z" fill="var(--c3)" stroke="var(--c3)" stroke-width="3" stroke-linejoin="round" style="mix-blend-mode:var(--blend)"/>
+        <rect x="60" y="0" width="20" height="100" fill="var(--c3)"/>
+      </g>
+    </symbol>
+
+    <!-- D end-cap variants: s = steep (sketch), h = halfway, p = parallel to the arm -->
+    <symbol id="mDs" viewBox="-12 -10 184 116">
+      <g style="isolation:isolate">
+        <circle cx="113" cy="50" r="42" fill="none" stroke="var(--c2)" stroke-width="20"/>
+        <path d="M2.70 0H60V20H-2.70Z" stroke="var(--c1)" stroke-width="3" stroke-linejoin="round" fill="var(--c1)"/>
+        <path d="M16.70 40H60V60H11.30Z" stroke="var(--c1)" stroke-width="3" stroke-linejoin="round" fill="var(--c1)"/>
+        <path d="M2.70 80H60V100H-2.70Z" stroke="var(--c1)" stroke-width="3" stroke-linejoin="round" fill="var(--c1)"/>
+        <path d="M60 0H80V71.6L140 -6H166L84 100H60Z" fill="none" stroke="var(--gap)" stroke-width="10" stroke-linejoin="round"/>
+        <path d="M60 0H80V71.6L140 -6H166L84 100H60Z" fill="var(--c3)" stroke="var(--c3)" stroke-width="3" stroke-linejoin="round" style="mix-blend-mode:var(--blend)"/>
+        <rect x="60" y="0" width="20" height="100" fill="var(--c3)"/>
+      </g>
+    </symbol>
+<symbol id="mDp" viewBox="-12 -10 184 116">
+      <g style="isolation:isolate">
+        <circle cx="113" cy="50" r="42" fill="none" stroke="var(--c2)" stroke-width="20"/>
+        <path d="M7.74 0H60V20H-7.74Z" stroke="var(--c1)" stroke-width="3" stroke-linejoin="round" fill="var(--c1)"/>
+        <path d="M21.74 40H60V60H6.26Z" stroke="var(--c1)" stroke-width="3" stroke-linejoin="round" fill="var(--c1)"/>
+        <path d="M7.74 80H60V100H-7.74Z" stroke="var(--c1)" stroke-width="3" stroke-linejoin="round" fill="var(--c1)"/>
+        <path d="M60 0H80V71.6L140 -6H166L84 100H60Z" fill="none" stroke="var(--gap)" stroke-width="10" stroke-linejoin="round"/>
+        <path d="M60 0H80V71.6L140 -6H166L84 100H60Z" fill="var(--c3)" stroke="var(--c3)" stroke-width="3" stroke-linejoin="round" style="mix-blend-mode:var(--blend)"/>
+        <rect x="60" y="0" width="20" height="100" fill="var(--c3)"/>
+      </g>
+    </symbol>
+<symbol id="mDh" viewBox="-12 -10 184 116">
+      <g style="isolation:isolate">
+        <circle cx="113" cy="50" r="42" fill="none" stroke="var(--c2)" stroke-width="20"/>
+        <path d="M3.90 0H60V20H-3.90Z" stroke="var(--c1)" stroke-width="3" stroke-linejoin="round" fill="var(--c1)"/>
+        <path d="M17.90 40H60V60H10.10Z" stroke="var(--c1)" stroke-width="3" stroke-linejoin="round" fill="var(--c1)"/>
+        <path d="M3.90 80H60V100H-3.90Z" stroke="var(--c1)" stroke-width="3" stroke-linejoin="round" fill="var(--c1)"/>
+        <path d="M60 0H80V71.6L140 -6H166L84 100H60Z" fill="none" stroke="var(--gap)" stroke-width="10" stroke-linejoin="round"/>
+        <path d="M60 0H80V71.6L140 -6H166L84 100H60Z" fill="var(--c3)" stroke="var(--c3)" stroke-width="3" stroke-linejoin="round" style="mix-blend-mode:var(--blend)"/>
+        <rect x="60" y="0" width="20" height="100" fill="var(--c3)"/>
+      </g>
+    </symbol>
+
+    <!-- A: shapes, aligned, overlaps mixed -->
+    <symbol id="mA" viewBox="0 0 158 100">
+      <g style="isolation:isolate">
+        <rect x="4" y="10" width="80" height="80" rx="5" fill="var(--c1)"/>
+        <circle cx="112" cy="50" r="42" fill="var(--c2)" style="mix-blend-mode:var(--blend)"/>
+        <path d="M33 13H123L78 90Z" fill="var(--c3)" stroke="var(--c3)" stroke-width="6" stroke-linejoin="round" style="mix-blend-mode:var(--blend)"/>
+        <g clip-path="url(#triClip)">
+          <circle cx="112" cy="50" r="42" fill="var(--x23)"/>
+          <rect x="4" y="10" width="80" height="80" fill="var(--x13)"/>
+        </g>
+      </g>
+    </symbol>
+
+    <!-- B v2: wider, heavier V; VO kerned optically to match ƎV -->
+    <symbol id="mB" viewBox="-6 -8 264 98">
+      <path d="M0 0H64V80H0V64H48V48H8V32H48V16H0Z" fill="var(--c1)" stroke="var(--c1)" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M80 0H102L124 42L146 0H168L124 84Z" fill="var(--c3)" stroke="var(--c3)" stroke-width="4" stroke-linejoin="round"/>
+      <circle cx="207" cy="40" r="35" fill="none" stroke="var(--c2)" stroke-width="16"/>
+    </symbol>
+
+    <!-- C v2: narrower Ǝ, the triangle lands on its spine -->
+    <symbol id="mC" viewBox="16 0 142 100">
+      <g style="isolation:isolate">
+        <path d="M20 10H84V90H20V74H68V58H28V42H68V26H20Z" fill="var(--c1)" stroke="var(--c1)" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="112" cy="50" r="42" fill="var(--c2)" style="mix-blend-mode:var(--blend)"/>
+        <path d="M33 13H123L78 90Z" fill="var(--c3)" stroke="var(--c3)" stroke-width="6" stroke-linejoin="round" style="mix-blend-mode:var(--blend)"/>
+        <g clip-path="url(#triClipC)">
+          <circle cx="112" cy="50" r="42" fill="var(--x23)"/>
+          <path d="M20 10H84V90H20V74H68V58H28V42H68V26H20Z" fill="var(--x13)"/>
+        </g>
+      </g>
+    </symbol>
+    <!-- Cut wordmarks: glyph outlines from the font files, cut with the arm angle -->
+<mask id="cut-saira" maskUnits="userSpaceOnUse" x="-500" y="-1200" width="4482" height="1700"><rect x="-500" y="-1200" width="4482" height="1700" fill="#fff"/><path d="M130.6 -702.1L-0.9 -702.1L-0.9 -556.9L18.3 -556.9ZM663.8 -702.1L683.0 -702.1L683.0 -556.9L551.5 -556.9ZM1562.6 -701.5L1582.2 -701.5L1582.2 -561.6L1454.3 -561.6ZM1505.0 -416.2L1524.6 -416.2L1524.6 -277.0L1397.3 -277.0ZM1562.6 -126.4L1582.2 -126.4L1582.2 13.5L1454.3 13.5ZM2459.3 -691.4L2479.3 -691.4L2479.3 -558.9L2356.7 -558.9ZM2464.6 -129.5L2484.3 -129.5L2484.3 7.1L2358.9 7.1Z" fill="#000"/></mask><g id="w-saira" mask="url(#cut-saira)"><path d="M269.5503363356516 0.0V-570.9098164405427H29.151636073423784V-688.0H652.9607798426633V-570.9098164405427H412.2980275909246V0.0ZM1006.7762412633922 0.0V-688.0H1552.169696969697V-575.0980503933417H1150.127854534399V-402.752935811196H1494.5902603648015V-290.51111617831486H1150.127854534399V-112.90194960665829H1552.169696969697V0.0ZM2249.038744070508 8.0Q2162.1145621072196 8.0 2103.086458128198 -1.6320259947554439Q2044.0583541491762 -11.264051989510888 2006.860315157043 -34.396077984266334Q1969.6622761649098 -57.52810397902178 1950.1622761649098 -97.5941169763995Q1930.6622761649098 -137.66012997377723 1923.6622761649098 -198.5281039790218Q1916.6622761649098 -259.39607798426636 1916.6622761649098 -344.0Q1916.6622761649098 -429.47189602097825 1923.596263167532 -490.2738570288451Q1930.5302501701544 -551.0758180367119 1950.0302501701544 -591.1418310340896Q1969.5302501701544 -631.2078440314673 2006.2943021596652 -653.9718960209782Q2043.0583541491762 -676.7359480104891 2102.5204451308205 -686.3679740052446Q2161.9825361124645 -696.0 2249.038744070508 -696.0Q2282.434822054774 -696.0 2319.0289390311736 -693.9339870026223Q2355.6230560075733 -691.8679740052446 2389.717172983973 -687.8019610078668Q2423.811289960372 -683.7359480104891 2449.339393939394 -678.6039220157337V-571.7019724090753Q2418.1707700652632 -575.7019724090753 2387.6047570678857 -577.7019724090753Q2357.038744070508 -579.7019724090753 2331.42501701544 -581.1359594116976Q2305.811289960372 -582.5699464143199 2287.1315499079265 -582.5699464143199Q2224.1681477873017 -582.5699464143199 2182.3465767007665 -578.7019724090753Q2140.5250056142313 -574.8339984038308 2115.9772915565413 -562.2960893854749Q2091.4295774988514 -549.7581803671189 2079.655720470006 -523.8143883251624Q2067.881863441161 -497.870596283206 2064.2119284280498 -454.35098620453766Q2060.5419934149386 -410.8313761258693 2060.5419934149386 -344.0Q2060.5419934149386 -277.1686238741307 2064.2119284280498 -233.5830007980846Q2067.881863441161 -189.99737772203855 2079.655720470006 -164.1195986774598Q2091.4295774988514 -138.24181963288106 2115.9772915565413 -125.70391061452513Q2140.5250056142313 -113.1660015961692 2182.3465767007665 -109.29802759092463Q2224.1681477873017 -105.43005358568007 2287.1315499079265 -105.43005358568007Q2327.339393939394 -105.43005358568007 2373.773380942016 -108.43005358568007Q2420.2073679446385 -111.43005358568007 2454.339393939394 -116.29802759092463V-6.132025994755445Q2427.339393939394 -2.132025994755444 2391.9433159551277 0.9339870026222781Q2356.5472379708613 4.0 2319.255082002329 6.0Q2281.962926033796 8.0 2249.038744070508 8.0ZM2841.531323265721 0.0V-688.0H2985.146988526238V-405.07319575875044H3339.7810097324864V-688.0H3481.6607269825145V0.0H3339.7810097324864V-286.26667426747235H2985.146988526238V0.0Z" fill="var(--ink)"/></g>
+<mask id="cut-sairaLock" maskUnits="userSpaceOnUse" x="-500" y="-1200" width="4142" height="1700"><rect x="-500" y="-1200" width="4142" height="1700" fill="#fff"/><path d="M130.6 -702.1L-0.9 -702.1L-0.9 -556.9L18.3 -556.9ZM663.8 -702.1L683.0 -702.1L683.0 -556.9L551.5 -556.9ZM1449.3 -701.5L1468.8 -701.5L1468.8 -561.6L1341.0 -561.6ZM1391.6 -416.2L1411.2 -416.2L1411.2 -277.0L1284.0 -277.0ZM1449.3 -126.4L1468.8 -126.4L1468.8 13.5L1341.0 13.5ZM2232.5 -691.4L2252.6 -691.4L2252.6 -558.9L2130.0 -558.9ZM2237.8 -129.5L2257.6 -129.5L2257.6 7.1L2132.1 7.1Z" fill="#000"/></mask><g id="w-sairaLock" mask="url(#cut-sairaLock)"><path d="M269.5503363356516 0.0V-570.9098164405427H29.151636073423784V-688.0H652.9607798426633V-570.9098164405427H412.2980275909246V0.0ZM893.3987002622277 0.0V-688.0H1438.7921559685328V-575.0980503933417H1036.7503135332345V-402.752935811196H1381.2127193636372V-290.51111617831486H1036.7503135332345V-112.90194960665829H1438.7921559685328V0.0ZM2022.2836620681792 8.0Q1935.3594801048912 8.0 1876.3313761258694 -1.6320259947554439Q1817.3032721468476 -11.264051989510888 1780.1052331547144 -34.396077984266334Q1742.9071941625812 -57.52810397902178 1723.4071941625812 -97.5941169763995Q1703.9071941625812 -137.66012997377723 1696.9071941625812 -198.5281039790218Q1689.9071941625812 -259.39607798426636 1689.9071941625812 -344.0Q1689.9071941625812 -429.47189602097825 1696.8411811652036 -490.2738570288451Q1703.7751681678258 -551.0758180367119 1723.2751681678258 -591.1418310340896Q1742.7751681678258 -631.2078440314673 1779.5392201573368 -653.9718960209782Q1816.3032721468476 -676.7359480104891 1875.7653631284916 -686.3679740052446Q1935.2274541101356 -696.0 2022.2836620681792 -696.0Q2055.6797400524456 -696.0 2092.273857028845 -693.9339870026223Q2128.867974005245 -691.8679740052446 2162.962090981644 -687.8019610078668Q2197.0562079580436 -683.7359480104891 2222.584311937065 -678.6039220157337V-571.7019724090753Q2191.415688062935 -575.7019724090753 2160.8496750655568 -577.7019724090753Q2130.283662068179 -579.7019724090753 2104.669935013111 -581.1359594116976Q2079.0562079580436 -582.5699464143199 2060.376467905598 -582.5699464143199Q1997.4130657849732 -582.5699464143199 1955.591494698438 -578.7019724090753Q1913.7699236119029 -574.8339984038308 1889.222209554213 -562.2960893854749Q1864.6744954965227 -549.7581803671189 1852.9006384676777 -523.8143883251624Q1841.1267814388325 -497.870596283206 1837.456846425721 -454.35098620453766Q1833.7869114126097 -410.8313761258693 1833.7869114126097 -344.0Q1833.7869114126097 -277.1686238741307 1837.456846425721 -233.5830007980846Q1841.1267814388325 -189.99737772203855 1852.9006384676777 -164.1195986774598Q1864.6744954965227 -138.24181963288106 1889.222209554213 -125.70391061452513Q1913.7699236119029 -113.1660015961692 1955.591494698438 -109.29802759092463Q1997.4130657849732 -105.43005358568007 2060.376467905598 -105.43005358568007Q2100.584311937065 -105.43005358568007 2147.0182989396876 -108.43005358568007Q2193.45228594231 -111.43005358568007 2227.584311937065 -116.29802759092463V-6.132025994755445Q2200.584311937065 -2.132025994755444 2165.1882339527992 0.9339870026222781Q2129.792155968533 4.0 2092.5 6.0Q2055.207844031467 8.0 2022.2836620681792 8.0ZM2501.398700262228 0.0V-688.0H2645.0143655227453V-405.07319575875044H2999.6483867289935V-688.0H3141.5281039790216V0.0H2999.6483867289935V-286.26667426747235H2645.0143655227453V0.0Z" fill="var(--ink)"/></g>
+<mask id="cut-chakra" maskUnits="userSpaceOnUse" x="-500" y="-1200" width="3223" height="1700"><rect x="-500" y="-1200" width="3223" height="1700" fill="#fff"/><path d="M103.2 -509.5L-10.0 -509.5L-10.0 -390.5L11.1 -390.5ZM384.9 -509.5L406.0 -509.5L406.0 -390.5L292.8 -390.5ZM384.9 -107.5L406.0 -107.5L406.0 11.5L292.8 11.5Z" fill="#000"/></mask><g id="w-chakra" mask="url(#cut-chakra)"><path d="M110 -99V-402H20V-498H112V-660H223V-498H376V-402H223V-135L262 -96H376V0H209ZM516 -99V-398L615 -498H886L987 -398V-212H629V-132L667 -94H838L874 -131V-161H986V-97L889 0H614ZM874 -295V-364L835 -404H668L629 -364V-295ZM1147 -99V-399L1245 -498H1508L1607 -398V-316H1494V-362L1454 -401H1300L1260 -362V-136L1300 -97H1454L1494 -136V-182H1607V-100L1508 0H1245ZM1762 -714H1875V-412L1961 -498H2118L2223 -393V0H2110V-362L2071 -401H1979L1875 -296V0H1762Z" fill="var(--ink)"/></g>
+<mask id="cut-chakraCaps" maskUnits="userSpaceOnUse" x="-500" y="-1200" width="4533" height="1700"><rect x="-500" y="-1200" width="4533" height="1700" fill="#fff"/><path d="M105.8 -711.9L-10.0 -711.9L-10.0 -589.1L10.8 -589.1ZM565.2 -711.9L586.0 -711.9L586.0 -589.1L470.2 -589.1ZM1507.1 -711.9L1527.9 -711.9L1527.9 -589.1L1412.1 -589.1ZM1478.0 -412.8L1498.9 -412.8L1498.9 -291.2L1384.0 -291.2ZM1507.1 -110.9L1527.9 -110.9L1527.9 11.9L1412.1 11.9Z" fill="#000"/></mask><g id="w-chakraCaps" mask="url(#cut-chakraCaps)"><path d="M230 -601H20V-700H556V-601H346V0H230ZM1009.909090909091 -700H1497.909090909091V-601H1125.909090909091V-401H1468.909090909091V-303H1125.909090909091V-99H1497.909090909091V0H1009.909090909091ZM1961.818181818182 -113V-587L2074.818181818182 -700H2402.818181818182L2513.818181818182 -589V-497H2397.818181818182V-548L2344.818181818182 -600H2134.818181818182L2077.818181818182 -544V-156L2134.818181818182 -100H2344.818181818182L2397.818181818182 -152V-203H2513.818181818182V-111L2402.818181818182 0H2074.818181818182ZM2982.727272727273 -700H3098.727272727273V-399H3416.727272727273V-700H3532.727272727273V0H3416.727272727273V-299H3098.727272727273V0H2982.727272727273Z" fill="var(--ink)"/></g>
+  </defs>
+</svg>
+
+<main class="wrap">
+  <header>
+    <div class="eyebrow">Logo studies · round 6 · Volt palette · Baloo 2</div>
+    <h1><span class="e">E</span><span class="v">V</span><span class="o">O</span>tech, three shapes</h1>
+    <p class="lede">The mark is settled: your ligature, with the speed-line cuts. Saira Expanded is the wordmark, cut at the same angle as the check. Sections marked NEW are the latest round. The tiles stay fixed whatever theme you view the page in.</p>
+  </header>
+
+  <!-- D -->
+  <section>
+    <div class="sec-head"><h2>D · Your ligature</h2><span class="new">new</span><span class="tag">your first concept, cleaned up</span></div>
+    <div class="study">
+      <div class="tiles three">
+        <div class="tile t-light">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Concept D, light">
+            <use href="#mD" x="30" y="10" width="140" height="92"/>
+            <text x="100" y="178" text-anchor="middle" font-family="'Baloo 2'" font-weight="600" font-size="56" letter-spacing="2" fill="var(--ink)">tech</text>
+          </svg>
+        </div>
+        <div class="tile t-dark">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Concept D, dark">
+            <use href="#mD" x="30" y="10" width="140" height="92"/>
+            <text x="100" y="178" text-anchor="middle" font-family="'Baloo 2'" font-weight="600" font-size="56" letter-spacing="2" fill="var(--ink)">tech</text>
+          </svg>
+        </div>
+        <div class="tile t-one">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Concept D, one color">
+            <use href="#mD" x="30" y="10" width="140" height="92"/>
+            <text x="100" y="178" text-anchor="middle" font-family="'Baloo 2'" font-weight="600" font-size="56" letter-spacing="2" fill="var(--ink)">tech</text>
+          </svg>
+        </div>
+      </div>
+      <div class="notes">
+        <h3>A shared stem, and the V is a check mark</h3>
+        <p>The Ǝ and the V share one stroke, so the letters are linked together the way a monogram is. The V's long arm reads as a <b>check mark</b>, in an app where technicians check in and mark tasks done. You drew that by instinct. Keep it.</p>
+        <ul>
+          <li><b>Kept:</b> the arm rising above the cap line and crossing the O. That overshoot is what gives it energy.</li>
+          <li><b>Changed:</b> bars level and equal weight, the middle bar shorter like a real E, every stroke the same thickness, Volt colors in place of pure blue and black.</li>
+          <li><b>One color:</b> a thin gap where the arm crosses the O keeps the crossing readable.</li>
+        </ul>
+        <div class="verdict">one risk: <b>the slashed O can read as Ø</b>, or as "zero". The color mostly fixes that.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Horizontal Saira lockups -->
+  <section>
+    <div class="sec-head"><h2>Saira, side by side</h2><span class="new">new</span><span class="tag">horizontal lockups</span></div>
+    <div class="notes"><h3>A · Aligned to the bars</h3><p>Cap height 60% of the mark: the top of TECH lines up with the top of the Ǝ's middle bar, and its baseline sits on the bottom bar.</p></div>
+    <div class="locks">
+      <div class="tile lock t-dark"><svg viewBox="-6 -4 494 128" role="img" aria-label="Horizontal lockup A, dark"><use href="#mDp" x="0" y="0" width="184" height="116"/><g transform="translate(207.46 110.00) scale(0.08721)"><use href="#w-sairaLock"/></g></svg></div>
+      <div class="tile lock t-light"><svg viewBox="-6 -4 494 128" role="img" aria-label="Horizontal lockup A, light"><use href="#mDp" x="0" y="0" width="184" height="116"/><g transform="translate(207.46 110.00) scale(0.08721)"><use href="#w-sairaLock"/></g></svg></div>
+      <div class="tile lock t-one"><svg viewBox="-6 -4 494 128" role="img" aria-label="Horizontal lockup A, one color"><use href="#mDp" x="0" y="0" width="184" height="116"/><g transform="translate(207.46 110.00) scale(0.08721)"><use href="#w-sairaLock"/></g></svg></div>
+    </div>
+    <div class="notes"><h3>B · Two-thirds, centered</h3><p>Cap height exactly ⅔ of the mark, centered on it. Bigger and bolder, but nothing in the mark lines up with it.</p></div>
+    <div class="locks">
+      <div class="tile lock t-dark"><svg viewBox="-6 -4 524 128" role="img" aria-label="Horizontal lockup B, dark"><use href="#mDp" x="0" y="0" width="184" height="116"/><g transform="translate(207.18 93.33) scale(0.09690)"><use href="#w-sairaLock"/></g></svg></div>
+      <div class="tile lock t-light"><svg viewBox="-6 -4 524 128" role="img" aria-label="Horizontal lockup B, light"><use href="#mDp" x="0" y="0" width="184" height="116"/><g transform="translate(207.18 93.33) scale(0.09690)"><use href="#w-sairaLock"/></g></svg></div>
+      <div class="tile lock t-one"><svg viewBox="-6 -4 524 128" role="img" aria-label="Horizontal lockup B, one color"><use href="#mDp" x="0" y="0" width="184" height="116"/><g transform="translate(207.18 93.33) scale(0.09690)"><use href="#w-sairaLock"/></g></svg></div>
+    </div>
+    <div class="notes">
+      <p><b>Spacing:</b> the stacked version spreads TECH across the mark's width. Side by side there's no width to match, and that much air made the word drift away from the mark, so the tracking is halved. The gap between the mark and the T is wider than the gaps between letters, so TECH reads as one word.</p>
+    </div>
+  </section>
+
+  <!-- Cut wordmarks -->
+  <section>
+    <div class="sec-head"><h2>The finalists, cut</h2><span class="new">new</span><span class="tag">real letter outlines, the check's angle on every horizontal end</span></div>
+    <div class="study">
+      <div class="tiles three">
+        <div class="tile t-dark"><svg viewBox="0 0 200 200" role="img" aria-label="Saira Expanded caps, dark"><use href="#mDp" x="28" y="10" width="144" height="92"/><g transform="translate(28.83 172) scale(0.03997)"><use href="#w-saira"/></g></svg></div>
+        <div class="tile t-light"><svg viewBox="0 0 200 200" role="img" aria-label="Saira Expanded caps, light"><use href="#mDp" x="28" y="10" width="144" height="92"/><g transform="translate(28.83 172) scale(0.03997)"><use href="#w-saira"/></g></svg></div>
+        <div class="tile t-one"><svg viewBox="0 0 200 200" role="img" aria-label="Saira Expanded caps, one color"><use href="#mDp" x="28" y="10" width="144" height="92"/><g transform="translate(28.83 172) scale(0.03997)"><use href="#w-saira"/></g></svg></div>
+      </div>
+      <div class="notes"><h3>Saira Expanded caps</h3><p>T, E and C cut. Tracked to the mark's exact width.</p></div>
+    </div>
+    <div class="study">
+      <div class="tiles three">
+        <div class="tile t-dark"><svg viewBox="0 0 200 200" role="img" aria-label="Chakra Petch caps, dark"><use href="#mDp" x="28" y="10" width="144" height="92"/><g transform="translate(29.21 172) scale(0.03929)"><use href="#w-chakraCaps"/></g></svg></div>
+        <div class="tile t-light"><svg viewBox="0 0 200 200" role="img" aria-label="Chakra Petch caps, light"><use href="#mDp" x="28" y="10" width="144" height="92"/><g transform="translate(29.21 172) scale(0.03929)"><use href="#w-chakraCaps"/></g></svg></div>
+        <div class="tile t-one"><svg viewBox="0 0 200 200" role="img" aria-label="Chakra Petch caps, one color"><use href="#mDp" x="28" y="10" width="144" height="92"/><g transform="translate(29.21 172) scale(0.03929)"><use href="#w-chakraCaps"/></g></svg></div>
+      </div>
+      <div class="notes"><h3>Chakra Petch caps</h3><p>T and E cut; its C already has clipped corners. Tracked to the mark's width.</p></div>
+    </div>
+    <div class="study">
+      <div class="tiles three">
+        <div class="tile t-dark"><svg viewBox="0 0 200 200" role="img" aria-label="Chakra Petch lowercase, dark"><use href="#mDp" x="28" y="10" width="144" height="92"/><g transform="translate(36.20 176) scale(0.05600)"><use href="#w-chakra"/></g></svg></div>
+        <div class="tile t-light"><svg viewBox="0 0 200 200" role="img" aria-label="Chakra Petch lowercase, light"><use href="#mDp" x="28" y="10" width="144" height="92"/><g transform="translate(36.20 176) scale(0.05600)"><use href="#w-chakra"/></g></svg></div>
+        <div class="tile t-one"><svg viewBox="0 0 200 200" role="img" aria-label="Chakra Petch lowercase, one color"><use href="#mDp" x="28" y="10" width="144" height="92"/><g transform="translate(36.20 176) scale(0.05600)"><use href="#w-chakra"/></g></svg></div>
+      </div>
+      <div class="notes"><h3>Chakra Petch lowercase</h3><p>Only the t has horizontal ends to cut. Spacing opened up by 5.5%.</p></div>
+    </div>
+    <div class="notes">
+      <p><b>The rule:</b> a cut goes only where a horizontal stroke ends, exactly like the bars of the Ǝ, and always at 54.6°, parallel to the check. Upright strokes keep their square ends, the same as the V's stem. That is why the H stays plain in every version.</p>
+    </div>
+  </section>
+
+  <!-- Wordmark fonts -->
+  <section>
+    <div class="sec-head"><h2>Fonts for "tech"</h2><span class="new">new</span><span class="tag">the final mark, twelve wordmarks</span></div>
+    <div class="fontbar">
+      <div class="seg" role="group" aria-label="Tile color">
+        <button type="button" id="bg-dark" data-bg="t-dark" aria-pressed="true">Dark</button>
+        <button type="button" id="bg-light" data-bg="t-light" aria-pressed="false">Light</button>
+        <button type="button" id="bg-one" data-bg="t-one" aria-pressed="false">One color</button>
+      </div>
+    </div>
+    <div class="fonts" id="fonts"></div>
+    <div class="notes">
+      <p>Two ways to get speed. <b>An upright face with angled cuts</b> (Chakra Petch, Oxanium, Saira) agrees with the mark, whose stem stands straight up. <b>An italic</b> (Kanit, Exo 2, Archivo) adds speed of its own, but slants about 10–12°, a different angle from the 54.6° cuts. <b>Wide tracked caps</b> spanning the mark's width are the classic racing-team signature line.</p>
+    </div>
+  </section>
+
+  <script>
+  (() => {
+    // [family, css extras, case, caption, note, pick]
+    const F = [
+      ["'Baloo 2'", 'font-weight:600', 'lower', 'Baloo 2', 'Today\'s font, for comparison. Friendly, round, slow.'],
+      ["'Saira'", 'font-weight:600;font-stretch:125%', 'caps', 'Saira Expanded', 'Wide tracked caps. The most "racing team" of the set.', true],
+      ["'Kanit'", 'font-weight:600;font-style:italic', 'lower', 'Kanit Italic', 'Keeps the friendliness of lowercase and adds lean.', true],
+      ["'Chakra Petch'", 'font-weight:600', 'lower', 'Chakra Petch', 'Clipped corners echo the cuts on the E.', true],
+      ["'Michroma'", 'font-weight:400', 'caps', 'Michroma', 'Close to Eurostile, the classic motorsport face.'],
+      ["'Exo 2'", 'font-weight:700;font-style:italic', 'lower', 'Exo 2 Italic', 'Geometric and techy, a bit gamer.'],
+      ["'Archivo'", 'font-weight:700;font-style:italic;font-stretch:125%', 'lower', 'Archivo Expanded Italic', 'Wide and leaning, like a livery.'],
+      ["'Barlow Semi Condensed'", 'font-weight:600;font-style:italic', 'caps', 'Barlow Semi Condensed Italic', 'Road-sign plain, quick and serious.'],
+      ["'Oxanium'", 'font-weight:600', 'lower', 'Oxanium', 'Square with clipped corners. Strong sci-fi accent.'],
+      ["'Titillium Web'", 'font-weight:600', 'lower', 'Titillium Web', 'The calmest option. Technical, not flashy.'],
+      ["'Rajdhani'", 'font-weight:600', 'caps', 'Rajdhani', 'Narrow squared caps, like an instrument panel.'],
+      ["'Russo One'", 'font-weight:400', 'lower', 'Russo One', 'Heavy and blocky. Matches the mark\'s weight.'],
+    ]
+    const grid = document.getElementById('fonts')
+    grid.innerHTML = F.map(([fam, extra, kase, name, note, pick]) => {
+      const word = kase === 'caps'
+        ? `<text x="30" y="172" textLength="138" lengthAdjust="spacing" font-size="40" style="font-family:${fam};${extra}" fill="var(--ink)">TECH</text>`
+        : `<text x="100" y="176" text-anchor="middle" font-size="56" style="font-family:${fam};${extra}" fill="var(--ink)">tech</text>`
+      return `<figure class="ft${pick ? ' pick' : ''}"><div class="tile t-dark"><svg viewBox="0 0 200 200" role="img" aria-label="Mark with ${name}"><use href="#mDp" x="28" y="10" width="144" height="92"/>${word}</svg></div><figcaption><b>${name}</b><span>${note}</span></figcaption></figure>`
+    }).join('')
+    const buttons = document.querySelectorAll('.seg button')
+    buttons.forEach(b => b.addEventListener('click', () => {
+      buttons.forEach(o => o.setAttribute('aria-pressed', String(o === b)))
+      grid.querySelectorAll('.tile').forEach(t => { t.classList.remove('t-dark', 't-light', 't-one'); t.classList.add(b.dataset.bg) })
+    }))
+  })()
+  </script>
+
+  <!-- D end caps -->
+  <section>
+    <div class="sec-head"><h2>D · Angled end caps</h2><span class="new">new</span><span class="tag">the E's bars cut on a slant, like your sketch</span></div>
+    <div class="caps-head"><span>Steep · your sketch</span><span>Halfway</span><span>Parallel to the check</span></div>
+    <div class="tiles three caps">
+        <div class="tile t-dark">
+          <svg viewBox="0 0 200 200" role="img" aria-label="End caps steep, dark">
+            <use href="#mDs" x="28" y="10" width="144" height="92"/>
+            <text x="100" y="178" text-anchor="middle" font-family="'Baloo 2'" font-weight="600" font-size="56" letter-spacing="2" fill="var(--ink)">tech</text>
+          </svg>
+        </div>
+        <div class="tile t-dark">
+          <svg viewBox="0 0 200 200" role="img" aria-label="End caps halfway, dark">
+            <use href="#mDh" x="28" y="10" width="144" height="92"/>
+            <text x="100" y="178" text-anchor="middle" font-family="'Baloo 2'" font-weight="600" font-size="56" letter-spacing="2" fill="var(--ink)">tech</text>
+          </svg>
+        </div>
+        <div class="tile t-dark">
+          <svg viewBox="0 0 200 200" role="img" aria-label="End caps parallel, dark">
+            <use href="#mDp" x="28" y="10" width="144" height="92"/>
+            <text x="100" y="178" text-anchor="middle" font-family="'Baloo 2'" font-weight="600" font-size="56" letter-spacing="2" fill="var(--ink)">tech</text>
+          </svg>
+        </div>
+        <div class="tile t-light">
+          <svg viewBox="0 0 200 200" role="img" aria-label="End caps steep, light">
+            <use href="#mDs" x="28" y="10" width="144" height="92"/>
+            <text x="100" y="178" text-anchor="middle" font-family="'Baloo 2'" font-weight="600" font-size="56" letter-spacing="2" fill="var(--ink)">tech</text>
+          </svg>
+        </div>
+        <div class="tile t-light">
+          <svg viewBox="0 0 200 200" role="img" aria-label="End caps halfway, light">
+            <use href="#mDh" x="28" y="10" width="144" height="92"/>
+            <text x="100" y="178" text-anchor="middle" font-family="'Baloo 2'" font-weight="600" font-size="56" letter-spacing="2" fill="var(--ink)">tech</text>
+          </svg>
+        </div>
+        <div class="tile t-light">
+          <svg viewBox="0 0 200 200" role="img" aria-label="End caps parallel, light">
+            <use href="#mDp" x="28" y="10" width="144" height="92"/>
+            <text x="100" y="178" text-anchor="middle" font-family="'Baloo 2'" font-weight="600" font-size="56" letter-spacing="2" fill="var(--ink)">tech</text>
+          </svg>
+        </div>
+        <div class="tile t-one">
+          <svg viewBox="0 0 200 200" role="img" aria-label="End caps steep, one color">
+            <use href="#mDs" x="28" y="10" width="144" height="92"/>
+            <text x="100" y="178" text-anchor="middle" font-family="'Baloo 2'" font-weight="600" font-size="56" letter-spacing="2" fill="var(--ink)">tech</text>
+          </svg>
+        </div>
+        <div class="tile t-one">
+          <svg viewBox="0 0 200 200" role="img" aria-label="End caps halfway, one color">
+            <use href="#mDh" x="28" y="10" width="144" height="92"/>
+            <text x="100" y="178" text-anchor="middle" font-family="'Baloo 2'" font-weight="600" font-size="56" letter-spacing="2" fill="var(--ink)">tech</text>
+          </svg>
+        </div>
+        <div class="tile t-one">
+          <svg viewBox="0 0 200 200" role="img" aria-label="End caps parallel, one color">
+            <use href="#mDp" x="28" y="10" width="144" height="92"/>
+            <text x="100" y="178" text-anchor="middle" font-family="'Baloo 2'" font-weight="600" font-size="56" letter-spacing="2" fill="var(--ink)">tech</text>
+          </svg>
+        </div>
+    </div>
+    <div class="notes">
+      <p>Every cut leans the same way as the check's arm, so the bars read as moving forward with it. Each bar keeps its length: the cut pivots around the old square end, top shorter and bottom longer. <b>Parallel</b> uses the arm's exact angle, 54.6° from horizontal; <b>steep</b> is the 76° in your sketch; <b>halfway</b> splits the difference.</p>
+    </div>
+  </section>
+
+  <!-- B v2 -->
+  <section>
+    <div class="sec-head"><h2>B · ƎVO letters</h2><span class="new">revised</span><span class="tag">wider V, tighter VO</span></div>
+    <div class="study">
+      <div class="tiles three">
+        <div class="tile t-light"><svg viewBox="-6 -40 264 160" role="img" aria-label="Concept B, light"><use href="#mB" x="-6" y="-8" width="264" height="98"/></svg></div>
+        <div class="tile t-dark"><svg viewBox="-6 -40 264 160" role="img" aria-label="Concept B, dark"><use href="#mB" x="-6" y="-8" width="264" height="98"/></svg></div>
+        <div class="tile t-one"><svg viewBox="-6 -40 264 160" role="img" aria-label="Concept B, one color"><use href="#mB" x="-6" y="-8" width="264" height="98"/></svg></div>
+      </div>
+      <div class="notes">
+        <h3>Spaced by eye, not by ruler</h3>
+        <ul>
+          <li><b>V:</b> 22% wider and its strokes about 20% heavier, so it carries the same weight as the Ǝ and the O.</li>
+          <li><b>Kerning:</b> a V's slanted side leaves a pocket of empty space next to the O, so an equal measured gap looks too wide. The O now sits closer than the Ǝ does, so the two gaps look equal.</li>
+          <li><b>Overshoot:</b> your eyes are fine 😄 The V's point drops 4 units below the baseline on purpose. A point and a curve look short if they stop exactly on the line.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- A light fix -->
+  <section>
+    <div class="sec-head"><h2>A · Refined overlap</h2><span class="new">light fixed</span><span class="tag">the triangle reads purple again</span></div>
+    <div class="study">
+      <div class="tiles">
+        <div class="tile t-light">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Concept A, light">
+            <use href="#mA" x="21" y="18" width="158" height="100"/>
+            <text x="100" y="178" text-anchor="middle" font-family="'Baloo 2'" font-weight="600" font-size="56" letter-spacing="2" fill="var(--ink)">tech</text>
+          </svg>
+        </div>
+        <div class="tile t-dark">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Concept A, dark">
+            <use href="#mA" x="21" y="18" width="158" height="100"/>
+            <text x="100" y="178" text-anchor="middle" font-family="'Baloo 2'" font-weight="600" font-size="56" letter-spacing="2" fill="var(--ink)">tech</text>
+          </svg>
+        </div>
+      </div>
+      <div class="notes">
+        <h3>Purple first, then the overlap</h3>
+        <p>On white, multiplying the inks turned most of the triangle navy, since most of it sits on the other two shapes. Now the overlaps are drawn as purples leaning slightly toward blue and teal: the triangle stays purple, and you can still see where it crosses.</p>
+        <p>Dark is unchanged, colors adding like light.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- C v2 -->
+  <section>
+    <div class="sec-head"><h2>C · Shapes with an Ǝ</h2><span class="new">revised</span><span class="tag">narrower E</span></div>
+    <div class="study">
+      <div class="tiles">
+        <div class="tile t-light">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Concept C, light">
+            <use href="#mC" x="29" y="18" width="142" height="100"/>
+            <text x="100" y="178" text-anchor="middle" font-family="'Baloo 2'" font-weight="600" font-size="56" letter-spacing="2" fill="var(--ink)">tech</text>
+          </svg>
+        </div>
+        <div class="tile t-dark">
+          <svg viewBox="0 0 200 200" role="img" aria-label="Concept C, dark">
+            <use href="#mC" x="29" y="18" width="142" height="100"/>
+            <text x="100" y="178" text-anchor="middle" font-family="'Baloo 2'" font-weight="600" font-size="56" letter-spacing="2" fill="var(--ink)">tech</text>
+          </svg>
+        </div>
+      </div>
+      <div class="notes">
+        <h3>A letter, not a square</h3>
+        <p>The Ǝ is now 4:5 instead of square, with a shorter middle bar, and the triangle lands right on its spine. It's a cousin of D: shapes where D uses strokes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lockups -->
+  <section>
+    <div class="sec-head"><h2>Horizontal lockups</h2><span class="tag">for headers, email signatures, the web</span></div>
+    <div class="lockups">
+      <div class="tile wide t-light">
+        <svg viewBox="-4 -12 420 120" role="img" aria-label="Concept D horizontal lockup, light">
+          <use href="#mD" x="-4" y="-10" width="176" height="116"/>
+          <text x="188" y="100" font-family="'Baloo 2'" font-weight="600" font-size="120" fill="var(--ink)">tech</text>
+        </svg>
+      </div>
+      <div class="tile wide t-dark">
+        <svg viewBox="-4 -12 420 120" role="img" aria-label="Concept D horizontal lockup, dark">
+          <use href="#mD" x="-4" y="-10" width="176" height="116"/>
+          <text x="188" y="100" font-family="'Baloo 2'" font-weight="600" font-size="120" fill="var(--ink)">tech</text>
+        </svg>
+      </div>
+      <div class="tile wide t-light">
+        <svg viewBox="-6 -14 500 110" role="img" aria-label="Concept B horizontal lockup, light">
+          <use href="#mB" x="-6" y="-8" width="264" height="98"/>
+          <text x="274" y="80" font-family="'Baloo 2'" font-weight="600" font-size="112" fill="var(--ink)">tech</text>
+        </svg>
+      </div>
+      <div class="tile wide t-dark">
+        <svg viewBox="-6 -14 500 110" role="img" aria-label="Concept B horizontal lockup, dark">
+          <use href="#mB" x="-6" y="-8" width="264" height="98"/>
+          <text x="274" y="80" font-family="'Baloo 2'" font-weight="600" font-size="112" fill="var(--ink)">tech</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Icons -->
+  <section>
+    <div class="sec-head"><h2>As the app icon</h2><span class="tag">mark only, "tech" stays off the icon</span></div>
+    <div class="icons">
+      <div class="ic"><div class="squircle t-light"><svg viewBox="-4 -10 176 116"><use href="#mD"/></svg></div>D · iOS light</div>
+      <div class="ic"><div class="squircle t-dark"><svg viewBox="-4 -10 176 116"><use href="#mD"/></svg></div>D · iOS dark</div>
+      <div class="ic"><div class="squircle t-tinted"><svg viewBox="-4 -10 176 116"><use href="#mD"/></svg></div>D · iOS tinted</div>
+      <div class="ic"><div class="squircle round t-dark"><svg viewBox="-4 -10 176 116"><use href="#mD"/></svg></div>D · Android</div>
+      <div class="ic"><div class="squircle t-dark sz-60"><svg viewBox="-4 -10 176 116"><use href="#mD"/></svg></div>60pt</div>
+      <div class="ic"><div class="squircle t-dark sz-40"><svg viewBox="-4 -10 176 116"><use href="#mD"/></svg></div>40pt</div>
+      <div class="ic"><div class="squircle t-dark sz-29"><svg viewBox="-4 -10 176 116"><use href="#mD"/></svg></div>29pt</div>
+      <div class="ic"><div class="squircle t-dark"><svg viewBox="16 0 142 100"><use href="#mC"/></svg></div>C · iOS dark</div>
+      <div class="ic"><div class="squircle t-dark"><svg viewBox="0 0 158 100"><use href="#mA"/></svg></div>A · iOS dark</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>On gradients and shading</h2></div>
+    <div class="recs">
+      <div class="rec"><h3>Keep the master flat</h3><p>The SVG you hand to a printer, a website or a shirt vendor should be flat color. Gradients die in one-color printing, embroidery and small sizes.</p></div>
+      <div class="rec"><h3>Let overlaps be the depth</h3><p>Mixed colors where the shapes cross read as transparency, so the mark gets dimension without a single gradient stop.</p></div>
+      <div class="rec"><h3>iOS adds the glass for you</h3><p>Built in Icon Composer with each letter on its own layer, iOS 26 gives the icon Liquid Glass highlights and depth for free. Our <code>assets/expo.icon</code> is still Expo's template icon, so this is a real 0.9 task: the icon is native, it moves the fingerprint.</p></div>
+    </div>
+  </section>
+</main>

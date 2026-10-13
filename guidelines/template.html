@@ -1,0 +1,249 @@
+<title>3VOtech Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wdth,wght@125,500;125,600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: one readable column, like a printed brand sheet: a navy masthead, then logo, color and rules, each with big specimen tiles. */
+:root {
+  --page: #F3F5FB; --sheet: #FFFFFF; --ink: #0D1530; --ink2: #5B6585; --rule: #E3E7F1; --chip: #E3E8F4;
+  --tint: #2459F5; --no: #D92D3A; --yes: #0F7A45;
+  --display: 'Saira', system-ui, sans-serif;
+  --body: -apple-system, system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --page: #0A1230; --sheet: #131C42; --ink: #EAF0FF; --ink2: #9BA8D4; --rule: #222D5C; --chip: #1C2756; --tint: #5C8DFF; --no: #FF5A66; --yes: #3DDC8A; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --page: #0A1230; --sheet: #131C42; --ink: #EAF0FF; --ink2: #9BA8D4; --rule: #222D5C; --chip: #1C2756; --tint: #5C8DFF; --no: #FF5A66; --yes: #3DDC8A; color-scheme: dark; }
+
+body { background: var(--page); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+.mast { background: #0A1230; border-bottom: 1px solid #222D5C; padding-inline: 20px; padding-block: 56px 48px; display: grid; justify-items: center; gap: 22px; }
+.mast img { width: min(440px, 100%); height: auto; }
+.mast p { margin: 0; font-family: var(--display); font-stretch: 125%; font-weight: 500; font-size: 13px; letter-spacing: .32em; text-transform: uppercase; color: #9BA8D4; }
+
+main { max-width: 860px; margin: 0 auto; padding-inline: 20px; padding-block: 48px 80px; display: grid; gap: 64px; }
+section { display: grid; gap: 18px; }
+h1, h2, h3 { font-family: var(--display); font-stretch: 125%; margin: 0; line-height: 1.15; text-wrap: balance; }
+h1 { font-size: clamp(30px, 5vw, 40px); font-weight: 600; }
+h2 { font-size: 24px; font-weight: 600; padding-top: 22px; border-top: 1px solid var(--rule); }
+h3 { font-size: 17px; font-weight: 600; }
+p { margin: 0; max-width: 66ch; }
+.lead { font-size: 18px; }
+.muted { color: var(--ink2); }
+b { font-weight: 650; }
+.callout { border-left: 3px solid var(--tint); padding: 2px 0 2px 16px; }
+
+/* Specimen tiles keep their own fixed grounds: they are the artwork, not page chrome. */
+.spec { display: grid; gap: 10px; }
+.tile { border-radius: 14px; display: grid; place-items: center; padding: 36px 24px; min-height: 200px; }
+.tile img { max-width: 100%; height: auto; display: block; }
+.on-white { background: #FFFFFF; box-shadow: inset 0 0 0 1px #E3E7F1; }
+.on-navy { background: #0A1230; box-shadow: inset 0 0 0 1px #222D5C; }
+.on-black { background: #000000; box-shadow: inset 0 0 0 1px #222D5C; }
+.cap { display: grid; gap: 2px; }
+.cap b { font-size: 15px; }
+.cap span { font-size: 14px; color: var(--ink2); }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 640px) { .grid2, .grid3 { grid-template-columns: minmax(0, 1fr); } }
+.stack-img { width: 150px; }
+.hz-img { width: 340px; }
+.mark-img { width: 120px; }
+
+.which { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.which li { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; align-items: center; }
+.which .thumb { background: #FFFFFF; box-shadow: inset 0 0 0 1px #E3E7F1; border-radius: 10px; height: 72px; display: grid; place-items: center; padding: 10px; }
+.which .thumb img { max-height: 52px; max-width: 100px; }
+@media (max-width: 480px) { .which li { grid-template-columns: 88px minmax(0, 1fr); } }
+
+/* Clear space diagram: the dashed box sits one Ǝ bar away from the logo on every side. */
+.clear { background: #FFFFFF; box-shadow: inset 0 0 0 1px #E3E7F1; border-radius: 14px; padding: 40px 20px; display: grid; place-items: center; }
+.clear-box { position: relative; outline: 1.5px dashed #2459F5; padding: 16px; }
+.clear-box img { height: 96px; width: auto; display: block; max-width: 100%; }
+.clear-x { position: absolute; font: 500 12px var(--mono); color: #2459F5; }
+.clear-x.t { top: -1px; left: 50%; transform: translate(-50%, -100%); padding-bottom: 2px; }
+.clear-x.l { left: -1px; top: 50%; transform: translate(-100%, -50%); padding-right: 4px; }
+.sizes { display: grid; gap: 6px; margin: 0; padding-left: 20px; }
+
+/* Palette */
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 16px; }
+.sw { background: var(--sheet); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; display: grid; align-content: start; }
+.sw .chip { box-shadow: inset 0 -1px 0 rgba(128, 140, 180, .3); height: 120px; display: grid; grid-template-columns: 1fr auto; align-items: end; padding: 12px 14px; }
+.sw .chip .pair { width: 44px; height: 44px; border-radius: 10px; box-shadow: 0 0 0 2px rgba(255,255,255,.55); }
+.sw .meta { padding: 14px 16px 16px; display: grid; gap: 6px; }
+.sw .tag { justify-self: start; font: 500 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink2); background: var(--chip); border-radius: 6px; padding: 1px 7px; }
+.sw .role { font-size: 14px; color: var(--ink2); line-height: 1.45; }
+.codes { display: flex; flex-wrap: wrap; gap: 6px; }
+.code { font: 500 12.5px var(--mono); color: var(--ink); background: var(--chip); border: 0; border-radius: 6px; padding: 3px 8px; cursor: pointer; font-variant-numeric: tabular-nums; }
+.code:hover { outline: 1px solid var(--tint); }
+.code:focus-visible { outline: 2px solid var(--tint); outline-offset: 1px; }
+.code small { color: var(--ink2); font-size: 11px; margin-right: 4px; }
+
+/* Do / don't */
+.rules { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 16px; }
+.rule { display: grid; gap: 8px; }
+.rule .tile { min-height: 150px; padding: 22px; overflow: hidden; }
+.rule .tile img { width: 190px; }
+.verdict { display: flex; gap: 8px; align-items: flex-start; font-size: 14px; line-height: 1.4; }
+.verdict svg { flex: none; width: 18px; height: 18px; margin-top: 1px; }
+.v-no { color: var(--ink); } .v-no svg { color: var(--no); }
+.v-yes svg { color: var(--yes); }
+.x-recolor { filter: hue-rotate(150deg) saturate(1.6); }
+.x-stretch { transform: scale(1.35, .72); }
+.x-rotate { transform: rotate(-14deg); }
+.x-effects { filter: drop-shadow(5px 6px 0 #F5A524) drop-shadow(0 0 10px rgba(122,60,240,.8)); }
+.fake { display: flex; align-items: center; gap: 10px; }
+.fake img { width: 62px !important; }
+.fake span { font: 700 34px 'Comic Sans MS', 'Chalkboard SE', cursive; color: #0D1530; letter-spacing: .02em; }
+.crowd { display: grid; gap: 2px; justify-items: start; font-size: 12.5px; line-height: 1.3; color: #0D1530; text-align: left; }
+.crowd img { width: 150px !important; }
+.on-tint { background: #2459F5; }
+.on-busy { background: repeating-linear-gradient(54.6deg, #F5A524 0 14px, #22D3EE 14px 28px, #C42A80 28px 42px); }
+.tiny img { width: 40px !important; }
+
+.toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: #0D1530; color: #EAF0FF; font-size: 14px; border-radius: 99px; padding: 8px 16px; box-shadow: 0 6px 20px rgba(10,18,48,.3); }
+@media (prefers-reduced-motion: no-preference) { .code { transition: outline-color .15s; } }
+footer { color: var(--ink2); font-size: 14px; border-top: 1px solid var(--rule); padding-top: 18px; }
+</style>
+
+<header class="mast">
+  <img src="{{horizontal-color-dark}}" alt="3VOtech">
+  <p>Brand guidelines</p>
+</header>
+
+<main>
+  <section>
+    <h1>The 3VOtech logo</h1>
+    <p class="lead">The 3 in 3VOtech is a backward E, so the name reads EVO. The logo joins those three letters into one shape.</p>
+    <p>The Ǝ's spine is also the V's stem. The V's long arm is a <b>check mark</b> that cuts through the O, because that is the job: check in, get the work done, check it off. The Ǝ's bars are cut at the same angle as the check, so they read as speed lines. Time is money for installers, and the logo moves.</p>
+    <p class="muted">The colors are Volt: Volt Blue for the Ǝ, Ultraviolet for the V, Spark Cyan for the O, on a deep navy that is never black.</p>
+  </section>
+
+  <section>
+    <h2>Which version to use</h2>
+    <ul class="which">
+      <li><div class="thumb"><img src="{{stacked-color}}" alt=""></div><p><b>Stacked logo.</b> The default. Use it on a sign-in screen, a slide title, a shirt or a hat, anywhere with room around it.</p></li>
+      <li><div class="thumb"><img src="{{horizontal-color}}" alt=""></div><p><b>Horizontal logo.</b> For wide, short spaces: website and email headers, letterhead, invoices, banners.</p></li>
+      <li><div class="thumb"><img src="{{mark-color}}" alt=""></div><p><b>Mark only.</b> When there's no room for TECH: the app icon, profile pictures, favicons, anything under 120px wide.</p></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Color versions</h2>
+    <div class="grid2">
+      <div class="spec">
+        <div class="tile on-white"><img class="stack-img" src="{{stacked-color}}" alt="3VOtech logo in color on white"></div>
+        <div class="cap"><b>Color, light background</b><span>White or light gray: documents, decks, the website.</span></div>
+      </div>
+      <div class="spec">
+        <div class="tile on-navy"><img class="stack-img" src="{{stacked-color-dark}}" alt="3VOtech logo in color on navy"></div>
+        <div class="cap"><b>Color, dark background</b><span>Navy grounds only. Its colors add like light where the V crosses the O.</span></div>
+      </div>
+      <div class="spec">
+        <div class="tile on-white"><img class="stack-img" src="{{stacked-black}}" alt="3VOtech logo in black on white"></div>
+        <div class="cap"><b>Black</b><span>Printing on paper in one ink: forms, receipts, stamps, black-and-white printers.</span></div>
+      </div>
+      <div class="spec">
+        <div class="tile on-black"><img class="stack-img" src="{{stacked-white}}" alt="3VOtech logo in white on black"></div>
+        <div class="cap"><b>White</b><span>Dark grounds and photos, and one-color merch: shirts, hats, decals.</span></div>
+      </div>
+    </div>
+    <p class="callout">Not sure which one? A light background gets the color logo. A dark background gets the dark color logo. One ink, or a photo, gets black or white.</p>
+  </section>
+
+  <section>
+    <h2>Horizontal logo</h2>
+    <div class="grid2">
+      <div class="spec"><div class="tile on-white"><img class="hz-img" src="{{horizontal-color}}" alt="Horizontal logo in color on white"></div><div class="cap"><b>Color, light background</b></div></div>
+      <div class="spec"><div class="tile on-navy"><img class="hz-img" src="{{horizontal-color-dark}}" alt="Horizontal logo in color on navy"></div><div class="cap"><b>Color, dark background</b></div></div>
+      <div class="spec"><div class="tile on-white"><img class="hz-img" src="{{horizontal-black}}" alt="Horizontal logo in black on white"></div><div class="cap"><b>Black</b></div></div>
+      <div class="spec"><div class="tile on-black"><img class="hz-img" src="{{horizontal-white}}" alt="Horizontal logo in white on black"></div><div class="cap"><b>White</b></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Size and spacing</h2>
+    <p>Give the logo room to breathe. Keep clear space on every side at least the height of one Ǝ bar, marked <b>x</b> below. Text, edges and other graphics stay outside it.</p>
+    <div class="clear">
+      <div class="clear-box"><span class="clear-x t">x</span><span class="clear-x l">x</span><img src="{{horizontal-color}}" alt="Horizontal logo with its clear space marked"></div>
+    </div>
+    <p>Minimum sizes:</p>
+    <ul class="sizes">
+      <li><b>Horizontal logo:</b> 120px wide on screen, 1 inch wide in print</li>
+      <li><b>Stacked logo:</b> 64px wide on screen, 0.6 inch wide in print</li>
+      <li><b>Mark only:</b> 24px wide on screen, 0.25 inch wide in print</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Colors</h2>
+    <p>Each color has a job, and they aren't interchangeable. Use the codes exactly as shown. Tap a code to copy it.</p>
+    <p class="callout"><b>One rule to remember:</b> dark means navy, never black. Our dark grounds are Midnight and Navy Ink.</p>
+    <div class="swatches" id="swatches"></div>
+  </section>
+
+  <section>
+    <h2>Do's and don'ts</h2>
+    <p>Always use the logo files as they are. These are the common mistakes.</p>
+    <div class="rules">
+      <div class="rule"><div class="tile on-white"><img src="{{horizontal-color}}" alt=""></div><div class="verdict v-yes">{{yes}}<span>Color logo on white or a light gray.</span></div></div>
+      <div class="rule"><div class="tile on-navy"><img src="{{horizontal-color-dark}}" alt=""></div><div class="verdict v-yes">{{yes}}<span>Dark color logo on navy.</span></div></div>
+      <div class="rule"><div class="tile on-busy"><img src="{{horizontal-white}}" alt=""></div><div class="verdict v-yes">{{yes}}<span>White logo on a busy or colored ground.</span></div></div>
+      <div class="rule"><div class="tile on-white"><img class="x-recolor" src="{{horizontal-color}}" alt=""></div><div class="verdict v-no">{{no}}<span>Don't change the logo's colors.</span></div></div>
+      <div class="rule"><div class="tile on-white"><img class="x-stretch" src="{{horizontal-color}}" alt=""></div><div class="verdict v-no">{{no}}<span>Don't stretch or squash it.</span></div></div>
+      <div class="rule"><div class="tile on-white"><img class="x-rotate" src="{{horizontal-color}}" alt=""></div><div class="verdict v-no">{{no}}<span>Don't rotate or tilt it.</span></div></div>
+      <div class="rule"><div class="tile on-white"><img class="x-effects" src="{{horizontal-color}}" alt=""></div><div class="verdict v-no">{{no}}<span>Don't add shadows, glows, outlines or gradients.</span></div></div>
+      <div class="rule"><div class="tile on-white"><div class="fake"><img src="{{mark-color}}" alt=""><span>Tech</span></div></div><div class="verdict v-no">{{no}}<span>Don't retype TECH in a font. It is cut artwork; use the files.</span></div></div>
+      <div class="rule"><div class="tile on-white"><img src="{{horizontal-color-dark}}" alt=""></div><div class="verdict v-no">{{no}}<span>Don't use the dark color logo on white. It only works on navy.</span></div></div>
+      <div class="rule"><div class="tile on-tint"><img src="{{horizontal-color}}" alt=""></div><div class="verdict v-no">{{no}}<span>Don't put the color logo on a colored ground. Use white.</span></div></div>
+      <div class="rule"><div class="tile on-white"><div class="crowd"><img src="{{horizontal-color}}" alt=""><span>Invoice #1042 · Due on receipt</span></div></div><div class="verdict v-no">{{no}}<span>Don't crowd it. Keep the clear space.</span></div></div>
+      <div class="rule"><div class="tile on-white tiny"><img src="{{horizontal-color}}" alt=""></div><div class="verdict v-no">{{no}}<span>Don't shrink it below the minimum. Use the mark instead.</span></div></div>
+    </div>
+  </section>
+
+  <footer>3VOtech LLC · The logo files, app icon and full app palette live in the 3VOtech Brand design system.</footer>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+(() => {
+  const COLORS = [
+    { name: 'Volt Blue', tag: 'Primary', hex: '#2459F5', dark: '#5C8DFF', role: 'The Ǝ in the logo. In the app: anything you tap, such as buttons, links and selection.' },
+    { name: 'Ultraviolet', tag: 'Primary', hex: '#7A3CF0', dark: '#A685FF', role: 'The V, the check mark. Brand moments only: the logo, progress. Never a button.' },
+    { name: 'Spark Cyan', tag: 'Primary', hex: '#0891B2', dark: '#22D3EE', role: 'The O. Anything live: scanning, syncing, checked in.' },
+    { name: 'Navy Ink', tag: 'Neutral', hex: '#0D1530', role: 'Text, TECH in the logo, and a dark ground.' },
+    { name: 'Midnight', tag: 'Neutral', hex: '#0A1230', role: 'The dark background. Deep navy, never black.' },
+    { name: 'Mist', tag: 'Neutral', hex: '#F3F5FB', role: 'The light background, behind white cards.' },
+    { name: 'White', tag: 'Neutral', hex: '#FFFFFF', role: 'Cards and documents.' },
+  ]
+  const rgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)).join(', ')
+  const light = h => { const [r, g, b] = [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)); return (r * 299 + g * 587 + b * 114) / 1000 > 150 }
+  const el = document.getElementById('swatches')
+  el.innerHTML = COLORS.map(c => `
+    <div class="sw">
+      <div class="chip" style="background:${c.hex};">
+        <span></span>${c.dark ? `<span class="pair" style="background:${c.dark}" title="Dark mode: ${c.dark}"></span>` : ''}
+      </div>
+      <div class="meta">
+        <h3>${c.name}</h3>
+        <span class="tag">${c.tag}</span>
+        <p class="role">${c.role}</p>
+        <div class="codes">
+          <button type="button" class="code" data-copy="${c.hex}"><small>HEX</small>${c.hex}</button>
+          <button type="button" class="code" data-copy="${rgb(c.hex)}"><small>RGB</small>${rgb(c.hex)}</button>
+          ${c.dark ? `<button type="button" class="code" data-copy="${c.dark}"><small>DARK</small>${c.dark}</button>` : ''}
+        </div>
+      </div>
+    </div>`).join('')
+  const toast = document.getElementById('toast')
+  let timer
+  const show = msg => { toast.textContent = msg; toast.hidden = false; clearTimeout(timer); timer = setTimeout(() => { toast.hidden = true }, 1600) }
+  el.addEventListener('click', async e => {
+    const b = e.target.closest('[data-copy]')
+    if (!b) return
+    try { await navigator.clipboard.writeText(b.dataset.copy); show(`Copied ${b.dataset.copy}`) }
+    catch { const r = document.createRange(); r.selectNodeContents(b); const s = getSelection(); s.removeAllRanges(); s.addRange(r); show('Selected. Press Copy to copy it.') }
+  })
+})()
+</script>
