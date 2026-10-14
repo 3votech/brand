@@ -19,4 +19,16 @@ for v in light dark; do
   "$CHROME" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 \
     --window-size=1024,1024 --screenshot="$PWD/app-icon/app-icon-$v.png" "file://$PWD/app-icon/app-icon-$v.svg" 2>/dev/null
 done
+# The Android layers keep their transparent ground.
+for v in android-foreground android-monochrome; do
+  "$CHROME" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 \
+    --default-background-color=00000000 \
+    --window-size=1024,1024 --screenshot="$PWD/app-icon/$v.png" "file://$PWD/app-icon/$v.svg" 2>/dev/null
+done
+# The splash screen: the mark alone, on transparent, for the app to center on its ground.
+for v in color color-dark; do
+  "$CHROME" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 \
+    --default-background-color=00000000 \
+    --window-size=1024,646 --screenshot="$PWD/app-icon/splash-$v.png" "file://$PWD/logos/3votech-mark-$v.svg" 2>/dev/null
+done
 echo "Built logos/, app-icon/ and guidelines/brand-guidelines.html"

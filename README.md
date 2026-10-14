@@ -50,7 +50,7 @@ The app's full palette, with every role, the status colors and their contrast ra
 | Folder | What |
 |---|---|
 | `logos/` | The 15 logo SVGs. TECH is outlined artwork, so no font is needed to open them. |
-| `app-icon/` | 1024px app icons (PNG and SVG, light and dark), and the Ǝ, V and O as separate layers for Icon Composer. |
+| `app-icon/` | 1024px app icons (PNG and SVG, light and dark); the Ǝ, V and O as separate layers for Icon Composer, light and dark; Android's adaptive icon layers; and the mark for a splash screen. |
 | `guidelines/` | The brand guidelines page: `template.html` is the source, `brand-guidelines.html` the built page. |
 | `design-system/` | The design system's files: the brand book (`README.md`), `tokens.json`, its cover and asset notes. |
 | `studies/` | The logo studies page, kept as the record of how the logo was made. |

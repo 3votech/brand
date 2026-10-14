@@ -113,21 +113,37 @@ for kind in ('light', 'dark', 'navy', 'white', 'black'):
 # App icon: 1024 canvas, the mark's ink 66% of the width, centered on that ink.
 # The ink spans x -9.24 to 167.5 (the arm's tip plus its stroke) and y -7.5 to 102.
 left, right, top, bottom = -9.24, 167.5, -7.5, 102
-S = 676 / (right - left)
-X = 512 - ((left + right) / 2 + 12) * S
-Y = 512 - ((top + bottom) / 2 + 10) * S
 
 
-def icon_mark(body):
-    return nested(f'{X:.1f}', f'{Y:.1f}', f'{184 * S:.1f}', f'{116 * S:.1f}', body)
+def icon_mark(body, width=676):
+    """Place the mark on a 1024 canvas, its ink `width` wide and centered."""
+    s = width / (right - left)
+    x = 512 - ((left + right) / 2 + 12) * s
+    y = 512 - ((top + bottom) / 2 + 10) * s
+    return nested(f'{x:.1f}', f'{y:.1f}', f'{184 * s:.1f}', f'{116 * s:.1f}', body)
 
 
 for kind, ground in (('light', '#FFFFFF'), ('dark', '#0A1230')):
     write(f'app-icon/app-icon-{kind}.svg',
           svg('0 0 1024 1024', f'<rect width="1024" height="1024" fill="{ground}"/>{icon_mark(mark(kind, "i"))}',
               f'3VOtech app icon, {kind}', 1024, 1024))
-# Icon Composer layers: each letter alone, the E and O already carrying their gap
-for layer, name in (('o', 'o-ring'), ('e', 'e-bars'), ('v', 'v-check')):
-    write(f'app-icon/icon-layer-{name}.svg',
-          svg('0 0 1024 1024', icon_mark(mark('light', f'l{layer}', layers=(layer,))),
-              f'3VOtech app icon layer: {name}', 1024, 1024))
+# Icon Composer layers: each letter alone, the E and O already carrying their gap.
+# The -dark set carries the dark colors, for the icon's dark appearance.
+for kind, sfx in (('light', ''), ('dark', '-dark')):
+    for layer, name in (('o', 'o-ring'), ('e', 'e-bars'), ('v', 'v-check')):
+        write(f'app-icon/icon-layer-{name}{sfx}.svg',
+              svg('0 0 1024 1024', icon_mark(mark(kind, f'l{layer}' + ('d' if sfx else ''), layers=(layer,))),
+                  f'3VOtech app icon layer: {name}{sfx}', 1024, 1024))
+
+# Android adaptive icon layers, on transparent 1024 canvases. The launcher shows the
+# middle 72dp of a 108dp foreground (two thirds), so the ink is 44% of the canvas:
+# 66% of what shows, as on iOS, and inside the 66dp circle every mask keeps.
+# The ground is a color, white, set in the app's config.
+ANDROID = round(1024 * 0.66 * 72 / 108)
+write('app-icon/android-foreground.svg',
+      svg('0 0 1024 1024', icon_mark(mark('light', 'af'), ANDROID),
+          '3VOtech Android adaptive icon foreground', 1024, 1024))
+# Themed icons (Android 13+) use only the alpha, so the ink color does not matter.
+write('app-icon/android-monochrome.svg',
+      svg('0 0 1024 1024', icon_mark(mark('white', 'am'), ANDROID),
+          '3VOtech Android themed icon', 1024, 1024))
