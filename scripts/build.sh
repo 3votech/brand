@@ -25,10 +25,12 @@ for v in android-foreground android-monochrome; do
     --default-background-color=00000000 \
     --window-size=1024,1024 --screenshot="$PWD/app-icon/$v.png" "file://$PWD/app-icon/$v.svg" 2>/dev/null
 done
-# The splash screen: the mark alone, on transparent, for the app to center on its ground.
-for v in color color-dark; do
+# Evolution's splash screen: the mark over EVOLUTION, on transparent, for the app to
+# center on its ground.
+SPLASH_H=$(python3 -c "import re; w, h = map(float, re.search(r'viewBox=\"\\S+ \\S+ (\\S+) (\\S+)\"', open('app-icon/splash-light.svg').read()).groups()); print(round(1024 * h / w))")
+for v in light dark; do
   "$CHROME" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 \
     --default-background-color=00000000 \
-    --window-size=1024,646 --screenshot="$PWD/app-icon/splash-$v.png" "file://$PWD/logos/3votech-mark-$v.svg" 2>/dev/null
+    --window-size=1024,$SPLASH_H --screenshot="$PWD/app-icon/splash-$v.png" "file://$PWD/app-icon/splash-$v.svg" 2>/dev/null
 done
 echo "Built logos/, app-icon/ and guidelines/brand-guidelines.html"

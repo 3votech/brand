@@ -2,6 +2,8 @@
 
 Usage: python3 scripts/logos.py . build/wordmarks.defs.svg
 
+Reads build/wordmarks.json beside the defs, for the wordmarks' ink extents.
+
 Every file is standalone: literal colors, transparent ground, the TECH wordmark as
 glyph outlines (Saira at 125% width, weight 600) with the check's 54.6 degree cuts.
 
@@ -14,12 +16,14 @@ The check's arm is the length it was first drawn. Longer arms (+10% to +30%) wer
 tried on 2026-10-13 and dropped the next day: they threw off the mark's balance, and
 the check is meant as a hint, not a literal tick.
 """
+import json
 import os
 import re
 import sys
 
 OUT = sys.argv[1]
 DEFS = open(sys.argv[2]).read()
+EXTENTS = json.load(open(os.path.join(os.path.dirname(sys.argv[2]), 'wordmarks.json')))
 
 LIGHT = dict(e='#2459F5', o='#0891B2', v='#7A3CF0', ink='#0D1530')
 DARK = dict(e='#5C8DFF', o='#22D3EE', v='#A685FF', ink='#EAF0FF')
@@ -147,3 +151,17 @@ write('app-icon/android-foreground.svg',
 write('app-icon/android-monochrome.svg',
       svg('0 0 1024 1024', icon_mark(mark('white', 'am'), ANDROID),
           '3VOtech Android themed icon', 1024, 1024))
+
+# The splash screen for Evolution: the mark, and EVOLUTION below it as wide as the
+# mark's ink, in the logo's ink color. Transparent, for the app to set on its ground.
+CAP = 688  # Saira's cap height, in font units
+ev = EXTENTS['evolution']
+ev_scale = (right - left) / (ev['right'] - ev['left'])
+ev_cap = CAP * ev_scale
+ev_top = bottom + 1.3 * ev_cap
+ev_vb = f'{left - 4:.2f} {top - 4:.2f} {right - left + 8:.2f} {ev_top + ev_cap - top + 8:.2f}'
+for kind, sfx in (('light', 'light'), ('dark', 'dark')):
+    word = (f'<g transform="translate({left - ev["left"] * ev_scale:.3f} {ev_top + ev_cap:.3f}) scale({ev_scale:.5f})">'
+            f'{wordmark("evolution", ink_of(kind), "e")}</g>')
+    write(f'app-icon/splash-{sfx}.svg',
+          svg(ev_vb, mark(kind, 'sp') + word, f'Evolution splash screen, {kind}'))

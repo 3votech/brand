@@ -1,4 +1,4 @@
-"""Build the TECH wordmarks as glyph outlines.
+"""Build the wordmarks as glyph outlines: TECH for the logo, EVOLUTION for the app.
 
 Saira at 125% width and weight 600 (Saira Expanded), in capitals. Every place a
 horizontal stroke ends gets the logo's cut: 54.6 degrees from horizontal, parallel
@@ -6,12 +6,15 @@ to the check mark's arm (run 82 per 106 of rise). The cuts are masks, so the
 glyphs stay exactly as Saira draws them.
 
 Writes build/wordmarks.defs.svg: one <mask> and one <g id="w-NAME"> per wordmark,
-in font units (y up is negative), filled with var(--ink).
+in font units (y up is negative), filled with var(--ink). build/wordmarks.json
+holds each wordmark's ink extent along x, for centering it.
 
-  saira      tracked to the mark's width, for the stacked logo
-  sairaLock  tracking 110, for the horizontal logo
+  saira      TECH tracked to the mark's width, for the stacked logo
+  sairaLock  TECH at tracking 110, for the horizontal logo
+  evolution  EVOLUTION spaced like the stacked logo's TECH, for the app's splash screen
 """
 
+import json
 import os
 
 from fontTools.pens.boundsPen import BoundsPen
@@ -29,11 +32,15 @@ SAIRA_CUTS = {
     'T': [('L', 29.15, -688, -570.91), ('R', 652.96, -688, -570.91)],
     'E': [('R', 646.79, -688, -575.10), ('R', 589.21, -402.75, -290.51), ('R', 646.79, -112.90, 0)],
     'C': [('R', 608.58, -678.60, -571.70), ('R', 613.58, -116.30, -6.13)],
+    'L': [('R', 597.53, -117.09, 0)],
 }
+# V, O, U, I, N and H end no horizontal stroke, so they take no cut.
+
 
 WORDMARKS = {
-    'saira': dict(fit='width'),
-    'sairaLock': dict(fit='tracking', tracking=110),
+    'saira': dict(text='TECH', fit='width'),
+    'sairaLock': dict(text='TECH', fit='tracking', tracking=110),
+    'evolution': dict(text='EVOLUTION', fit='tracking', tracking='saira'),
 }
 
 
@@ -56,25 +63,27 @@ def main():
     font = instantiateVariableFont(TTFont('fonts/Saira.ttf'), {'wdth': 125, 'wght': 600})
     gs = font.getGlyphSet()
     cmap = font.getBestCmap()
-    glyphs = [(ch, gs[cmap[ord(ch)]]) for ch in 'TECH']
 
     def bounds(g):
         pen = BoundsPen(gs)
         g.draw(pen)
         return pen.bounds
 
-    advances = [g.width for _, g in glyphs]
-    first_left = bounds(glyphs[0][1])[0]
-    last_right = bounds(glyphs[-1][1])[2]
-
-    out = []
+    out, extents, trackings = [], {}, {}
     for name, spec in WORDMARKS.items():
+        glyphs = [(ch, gs[cmap[ord(ch)]]) for ch in spec['text']]
+        advances = [g.width for _, g in glyphs]
+        first_left = bounds(glyphs[0][1])[0]
+        last_right = bounds(glyphs[-1][1])[2]
         if spec['fit'] == 'width':
             scale = 27.5 / 688  # cap height 27.5 units in the stacked layout
             ink = sum(advances[:-1]) + last_right - first_left
             tracking = ((MARK_R - MARK_L) / scale - ink) / (len(glyphs) - 1)
         else:
             tracking = spec['tracking']
+            if isinstance(tracking, str):  # the tracking of an earlier wordmark
+                tracking = trackings[tracking]
+        trackings[name] = tracking
         paths, wedges, x = [], [], 0
         for (ch, g), w in zip(glyphs, advances):
             pen = SVGPathPen(gs)
@@ -90,11 +99,15 @@ def main():
             f'<path d="{"".join(wedges)}" fill="#000"/></mask>'
             f'<g id="w-{name}" mask="url(#cut-{name})"><path d="{"".join(paths)}" fill="var(--ink)"/></g>'
         )
+        extents[name] = dict(left=round(first_left, 2), right=round(right, 2))
         print(f'{name}: tracking {tracking:.0f}')
 
     os.makedirs('build', exist_ok=True)
     with open('build/wordmarks.defs.svg', 'w') as f:
         f.write('\n'.join(out))
+    with open('build/wordmarks.json', 'w') as f:
+        json.dump(extents, f, indent=2)
+        f.write('\n')
 
 
 if __name__ == '__main__':
