@@ -51,6 +51,7 @@ The app's full palette, with every role, the status colors and their contrast ra
 |---|---|
 | `logos/` | The 15 logo SVGs. TECH is outlined artwork, so no font is needed to open them. |
 | `app-icon/` | 1024px app icons (PNG and SVG, light and dark); the Ǝ, V and O as separate layers for Icon Composer, light and dark; Android's adaptive icon layers; and Evolution's splash screen, the mark over EVOLUTION. |
+| `avatars/` | 512px squares for profile pictures: the stacked logo on its ground, 64px from the sides and centered. Five versions, PNG and SVG. Made for a square; a circle crop trims TECH's corners slightly. |
 | `guidelines/` | The brand guidelines page: `template.html` is the source, `brand-guidelines.html` the built page. |
 | `design-system/` | The design system's files: the brand book (`README.md`), `tokens.json`, its cover and asset notes. |
 | `studies/` | The logo studies page, kept as the record of how the logo was made. |
@@ -59,7 +60,7 @@ The app's full palette, with every role, the status colors and their contrast ra
 
 ## Building
 
-Every file in `logos/`, `app-icon/` and `guidelines/brand-guidelines.html` is generated. Change the scripts or the template, never the output:
+Every file in `logos/`, `app-icon/`, `avatars/` and `guidelines/brand-guidelines.html` is generated. Change the scripts or the template, never the output:
 
 ```sh
 ./scripts/build.sh
@@ -68,7 +69,7 @@ Every file in `logos/`, `app-icon/` and `guidelines/brand-guidelines.html` is ge
 It needs [uv](https://docs.astral.sh/uv/) (for fontTools), curl and Google Chrome (to render the app icon PNGs). It downloads Saira from [google/fonts](https://github.com/google/fonts/tree/main/ofl/saira) into `fonts/`, which is not committed.
 
 - `scripts/wordmarks.py` turns TECH, and EVOLUTION for the app, into Saira Expanded outlines (125% width, weight 600) and cuts every horizontal stroke end at 54.6°.
-- `scripts/logos.py` draws the mark and assembles every logo and app icon. The geometry lives here: the bars, the V and the O, in a 100-unit-tall mark.
+- `scripts/logos.py` draws the mark and assembles every logo, app icon and avatar. The geometry lives here: the bars, the V and the O, in a 100-unit-tall mark.
 - `scripts/guidelines.py` builds the guidelines page with the logos inlined.
 
 After a rebuild, `git status` shows exactly which files changed. Upload changed logos to the design system, and republish the guidelines page, so the links above stay current.

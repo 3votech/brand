@@ -115,19 +115,31 @@ LOCKUP_GAP = 1.3 * ev_cap
 # The stacked logo: the mark at 144/184 scale, TECH below it in the stacked tracking.
 STACK_SCALE = 144 / 184
 TECH_SCALE = 0.03997
-stack_ink_bottom = 10 + (bottom + 10) * STACK_SCALE
+# The mark's 184:116 frame sits in a 144:92 box, so it is centered with a little room
+# above and below: its top lands MARK_Y down, not at 10.
+MARK_Y = 10 + (92 - 116 * STACK_SCALE) / 2
+stack_ink_bottom = MARK_Y + (bottom + 10) * STACK_SCALE
 tech_baseline = stack_ink_bottom + LOCKUP_GAP * STACK_SCALE + CAP * TECH_SCALE
 STACK_VB = f'22 6 156 {tech_baseline:.2f}'  # 6 units of margin, top and bottom
+TECH_LEFT, TECH_RIGHT = 29.15, 3481.66  # TECH's ink, in font units (the T's bar, the H's stem)
+# The stacked logo's ink: the mark, the arm's tip at the top, TECH's C overshoot at the bottom.
+STACK_INK = (min(28 + (left + 12) * STACK_SCALE, 28.83 + TECH_LEFT * TECH_SCALE),
+             MARK_Y + (top + 10) * STACK_SCALE,
+             max(28 + (right + 12) * STACK_SCALE, 28.83 + TECH_RIGHT * TECH_SCALE),
+             tech_baseline + 8 * TECH_SCALE)
+
+
+def stacked(kind, uid):
+    return (nested(28, 10, 144, 92, mark(kind, uid))
+            + f'<g transform="translate(28.83 {tech_baseline:.2f}) scale({TECH_SCALE})">{wordmark("saira", ink_of(kind), uid)}</g>')
+
 
 for kind in ('light', 'dark', 'navy', 'white', 'black'):
     sfx = SUFFIX[kind]
     write(f'logos/3votech-mark-{sfx}.svg',
           svg(MARK_VB, mark(kind, 'm'), f'3VOtech mark, {LABEL[kind]}'))
     write(f'logos/3votech-stacked-{sfx}.svg',
-          svg(STACK_VB,
-              nested(28, 10, 144, 92, mark(kind, 's'))
-              + f'<g transform="translate(28.83 {tech_baseline:.2f}) scale({TECH_SCALE})">{wordmark("saira", ink_of(kind), "s")}</g>',
-              f'3VOtech logo, stacked, {LABEL[kind]}'))
+          svg(STACK_VB, stacked(kind, 's'), f'3VOtech logo, stacked, {LABEL[kind]}'))
     write(f'logos/3votech-horizontal-{sfx}.svg',
           svg('-6 -2 524 120',
               nested(0, 0, 184, 116, mark(kind, 'h'))
@@ -179,3 +191,17 @@ for kind, sfx in (('light', 'light'), ('dark', 'dark')):
             f'{wordmark("evolution", ink_of(kind), "e")}</g>')
     write(f'app-icon/splash-{sfx}.svg',
           svg(ev_vb, mark(kind, 'sp') + word, f'Evolution splash screen, {kind}'))
+
+# Avatars and favicons: the stacked logo on a 512 square of its ground, its ink 384 wide
+# (64 of padding left and right) and centered both ways. A circle crop trims the arm's
+# tip and TECH's lower corners slightly; the square is the shape these are made for.
+GROUND = {'light': '#FFFFFF', 'dark': '#0A1230', 'navy': '#FFFFFF', 'white': '#000000', 'black': '#FFFFFF'}
+x0, y0, x1, y1 = STACK_INK
+aw = 384
+ah = aw * (y1 - y0) / (x1 - x0)
+for kind in ('light', 'dark', 'navy', 'white', 'black'):
+    write(f'avatars/3votech-avatar-{SUFFIX[kind]}.svg',
+          svg('0 0 512 512', f'<rect width="512" height="512" fill="{GROUND[kind]}"/>'
+              f'<svg x="64" y="{(512 - ah) / 2:.2f}" width="{aw}" height="{ah:.2f}" '
+              f'viewBox="{x0:.3f} {y0:.3f} {x1 - x0:.3f} {y1 - y0:.3f}" overflow="visible">{stacked(kind, "a")}</svg>',
+              f'3VOtech avatar, {LABEL[kind]}', 512, 512))

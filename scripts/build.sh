@@ -33,4 +33,9 @@ for v in light dark; do
     --default-background-color=00000000 \
     --window-size=1024,$SPLASH_H --screenshot="$PWD/app-icon/splash-$v.png" "file://$PWD/app-icon/splash-$v.svg" 2>/dev/null
 done
-echo "Built logos/, app-icon/ and guidelines/brand-guidelines.html"
+# Avatars and favicons: 512 squares on their grounds.
+for v in color color-dark navy white black; do
+  "$CHROME" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 \
+    --window-size=512,512 --screenshot="$PWD/avatars/3votech-avatar-$v.png" "file://$PWD/avatars/3votech-avatar-$v.svg" 2>/dev/null
+done
+echo "Built logos/, app-icon/, avatars/ and guidelines/brand-guidelines.html"
