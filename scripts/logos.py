@@ -99,14 +99,34 @@ SUFFIX = {'light': 'color', 'dark': 'color-dark', 'navy': 'navy', 'white': 'whit
 LABEL = {'light': 'color, for light grounds', 'dark': 'color, for dark grounds',
          'navy': 'one color, navy', 'white': 'one color, white', 'black': 'one color, black, for print'}
 
+# The mark's ink spans x -9.24 to 167.5 (the arm's tip plus its stroke) and y -7.5 to 102.
+left, right, top, bottom = -9.24, 167.5, -7.5, 102
+
+# A word set under the mark (TECH in the stacked logo, EVOLUTION on Evolution's splash
+# screen) sits one gap below the mark's ink, the same gap in both, in mark units. It is
+# 1.3 times EVOLUTION's cap height, about a fifth of the mark's height. (Until 2026-10-15
+# the stacked logo's gap was three times that, and TECH looked detached from the mark.)
+CAP = 688  # Saira's cap height, in font units
+ev = EXTENTS['evolution']
+ev_scale = (right - left) / (ev['right'] - ev['left'])
+ev_cap = CAP * ev_scale
+LOCKUP_GAP = 1.3 * ev_cap
+
+# The stacked logo: the mark at 144/184 scale, TECH below it in the stacked tracking.
+STACK_SCALE = 144 / 184
+TECH_SCALE = 0.03997
+stack_ink_bottom = 10 + (bottom + 10) * STACK_SCALE
+tech_baseline = stack_ink_bottom + LOCKUP_GAP * STACK_SCALE + CAP * TECH_SCALE
+STACK_VB = f'22 6 156 {tech_baseline:.2f}'  # 6 units of margin, top and bottom
+
 for kind in ('light', 'dark', 'navy', 'white', 'black'):
     sfx = SUFFIX[kind]
     write(f'logos/3votech-mark-{sfx}.svg',
           svg(MARK_VB, mark(kind, 'm'), f'3VOtech mark, {LABEL[kind]}'))
     write(f'logos/3votech-stacked-{sfx}.svg',
-          svg('22 6 156 172',
+          svg(STACK_VB,
               nested(28, 10, 144, 92, mark(kind, 's'))
-              + f'<g transform="translate(28.83 172) scale(0.03997)">{wordmark("saira", ink_of(kind), "s")}</g>',
+              + f'<g transform="translate(28.83 {tech_baseline:.2f}) scale({TECH_SCALE})">{wordmark("saira", ink_of(kind), "s")}</g>',
               f'3VOtech logo, stacked, {LABEL[kind]}'))
     write(f'logos/3votech-horizontal-{sfx}.svg',
           svg('-6 -2 524 120',
@@ -115,8 +135,6 @@ for kind in ('light', 'dark', 'navy', 'white', 'black'):
               f'3VOtech logo, horizontal, {LABEL[kind]}'))
 
 # App icon: 1024 canvas, the mark's ink 66% of the width, centered on that ink.
-# The ink spans x -9.24 to 167.5 (the arm's tip plus its stroke) and y -7.5 to 102.
-left, right, top, bottom = -9.24, 167.5, -7.5, 102
 
 
 def icon_mark(body, width=676):
@@ -154,11 +172,7 @@ write('app-icon/android-monochrome.svg',
 
 # The splash screen for Evolution: the mark, and EVOLUTION below it as wide as the
 # mark's ink, in the logo's ink color. Transparent, for the app to set on its ground.
-CAP = 688  # Saira's cap height, in font units
-ev = EXTENTS['evolution']
-ev_scale = (right - left) / (ev['right'] - ev['left'])
-ev_cap = CAP * ev_scale
-ev_top = bottom + 1.3 * ev_cap
+ev_top = bottom + LOCKUP_GAP
 ev_vb = f'{left - 4:.2f} {top - 4:.2f} {right - left + 8:.2f} {ev_top + ev_cap - top + 8:.2f}'
 for kind, sfx in (('light', 'light'), ('dark', 'dark')):
     word = (f'<g transform="translate({left - ev["left"] * ev_scale:.3f} {ev_top + ev_cap:.3f}) scale({ev_scale:.5f})">'

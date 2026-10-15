@@ -1,7 +1,7 @@
 The 3VOtech logo in three arrangements and five versions each. Every file is an SVG with a transparent ground, and TECH is outlined artwork, so no font is needed to open them. Every version separates the letters the same way: a thin gap around the V where it meets the bars and crosses the O.
 
 - `3votech-horizontal-*`: the default logo, the mark beside TECH at two-thirds its height.
-- `3votech-stacked-*`: TECH under the mark, tracked to the mark's width, for square spaces.
+- `3votech-stacked-*`: TECH under the mark, tracked to the mark's width, for square spaces. TECH sits the same distance below the mark as EVOLUTION on the app's splash screen.
 - `3votech-mark-*`: the mark alone, for icons, avatars and anything under 120px wide.
 
 | Version | Inks | Ground |
