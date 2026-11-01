@@ -177,6 +177,11 @@ ANDROID = round(1024 * 0.66 * 72 / 108)
 write('app-icon/android-foreground.svg',
       svg('0 0 1024 1024', icon_mark(mark('light', 'af'), ANDROID),
           '3VOtech Android adaptive icon foreground', 1024, 1024))
+# The same foreground in the dark colors, for a Midnight (#0A1230) ground: Evolution's
+# DEV build wears the dark icon, so it can't be mistaken for the live app on a phone.
+write('app-icon/android-foreground-dark.svg',
+      svg('0 0 1024 1024', icon_mark(mark('dark', 'afd'), ANDROID),
+          '3VOtech Android adaptive icon foreground, for a dark ground', 1024, 1024))
 # Themed icons (Android 13+) use only the alpha, so the ink color does not matter.
 write('app-icon/android-monochrome.svg',
       svg('0 0 1024 1024', icon_mark(mark('white', 'am'), ANDROID),
