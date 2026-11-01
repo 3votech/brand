@@ -20,7 +20,7 @@ for v in light dark; do
     --window-size=1024,1024 --screenshot="$PWD/app-icon/app-icon-$v.png" "file://$PWD/app-icon/app-icon-$v.svg" 2>/dev/null
 done
 # The Android layers keep their transparent ground.
-for v in android-foreground android-monochrome; do
+for v in android-foreground android-foreground-dark android-monochrome; do
   "$CHROME" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 \
     --default-background-color=00000000 \
     --window-size=1024,1024 --screenshot="$PWD/app-icon/$v.png" "file://$PWD/app-icon/$v.svg" 2>/dev/null
